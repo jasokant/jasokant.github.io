@@ -37,18 +37,10 @@
 		<script src="js/libs/stats.min.js"></script>
 
 		<script>
-            // revolutions per second
-              var angularSpeed = 0.2; 
-              var lastTime = 0;
-         
               // this function is executed on each animation frame
               function animate(){
                 // update
-                var time = (new Date()).getTime();
-                var timeDiff = time - lastTime;
-                var angleChange = angularSpeed * timeDiff * 2 * Math.PI / 1000;
-                plane.rotation.z += angleChange;
-                lastTime = time;
+                
          
                 // render
                 renderer.render(scene, camera);
@@ -75,9 +67,10 @@
          
               // plane
               var plane = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), new THREE.MeshNormalMaterial());
+              var base = new THREE.Mesh(new THREE.CircleGeometry(5,32), new THREE.MESHBasicMaterial());
               plane.overdraw = true;
               scene.add(plane);
-         
+              scene.add(base);
               // start animation
               animate();
 			/*var container, stats;
