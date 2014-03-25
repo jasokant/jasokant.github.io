@@ -246,6 +246,30 @@
                 } else if (keyboard.pressed("down")){
                     camera.position.x = x * Math.cos(rotSpeed) - z * Math.sin(rotSpeed);
                     camera.position.z = z * Math.cos(rotSpeed) + x * Math.sin(rotSpeed);
+                } else if (keyboard.pressed("1+w")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint1/" + (robot.currentJointAngles[0] + 0.1));
+                } else if (keyboard.pressed("1+s")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint1/" + (robot.currentJointAngles[0] - 0.1));
+                } else if (keyboard.pressed("2+w")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint2/" + (robot.currentJointAngles[1] + 0.1));
+                } else if (keyboard.pressed("2+s")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint2/" + (robot.currentJointAngles[1] - 0.1));
+                } else if (keyboard.pressed("3+w")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint3/" + (robot.currentJointAngles[2] + 0.1));
+                } else if (keyboard.pressed("3+s")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint3/" + (robot.currentJointAngles[2] - 0.1));
+                } else if (keyboard.pressed("4+w")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint4/" + (robot.currentJointAngles[3] + 0.1));
+                } else if (keyboard.pressed("4+s")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint4/" + (robot.currentJointAngles[3] - 0.1));
+                } else if (keyboard.pressed("5+w")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint5/" + (robot.currentJointAngles[4] + 0.1));
+                } else if (keyboard.pressed("5+s")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint5/" + (robot.currentJointAngles[4] - 0.1));
+                } else if (keyboard.pressed("6+w")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint6/" + (robot.currentJointAngles[5] + 0.1));
+                } else if (keyboard.pressed("6+s")){
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint6/" + (robot.currentJointAngles[5] - 0.1));
                 }
                 
                 camera.lookAt(scene.position);
@@ -255,7 +279,7 @@
             
             function getCorrectedAngle(angle)
             {
-                var correctedAngle = angle;
+                var correctedAngle = angle % (2*Math.PI);;
                 if(correctedAngle < 0 && correctedAngle > -0.00001)
                 {
                     correctedAngle=+0.0000;
@@ -368,13 +392,9 @@
                 return data;
             }
             
-            
-            
-            function render() 
+            function ajaxSuccess(data)
             {
-                
-                $.getJSON("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/read/testDevice",function(data){                
-                    var correctlyOrderedData = {
+                var correctlyOrderedData = {
                         "joint1": data.joint1,
                         "joint2": data.joint2,
                         "joint3": data.joint3,
@@ -383,10 +403,21 @@
                         "joint6": data.joint6,
                         "joint7": data.joint7,
                         "joint8": data.joint8
-                    }
-                    getAnglesSuccess(correctlyOrderedData);
-                });
+                }
+                getAnglesSuccess(correctlyOrderedData);
+            }
             
+            function render() 
+            {
+                
+                $.getJSON("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/read/testDevice",ajaxSuccess);
+                
+                /*$.ajax({
+                  dataType: "jsonp",
+                  url: "http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/read/testDevice",
+                  data: data,
+                  success: ajaxSuccess
+                });*/
                 
                 /*var data = 
                 {
