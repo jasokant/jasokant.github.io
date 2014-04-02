@@ -247,29 +247,29 @@
                     camera.position.x = x * Math.cos(rotSpeed) - z * Math.sin(rotSpeed);
                     camera.position.z = z * Math.cos(rotSpeed) + x * Math.sin(rotSpeed);
                 } else if (keyboard.pressed("1+w")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint1/" + (robot.currentJointAngles[0] + 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint1/" + (robot.currentJointAngles[0] + 0.2));
                 } else if (keyboard.pressed("1+s")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint1/" + (robot.currentJointAngles[0] - 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint1/" + (robot.currentJointAngles[0] - 0.2));
                 } else if (keyboard.pressed("2+w")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint2/" + (robot.currentJointAngles[1] + 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint2/" + (robot.currentJointAngles[1] + 0.2));
                 } else if (keyboard.pressed("2+s")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint2/" + (robot.currentJointAngles[1] - 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint2/" + (robot.currentJointAngles[1] - 0.2));
                 } else if (keyboard.pressed("3+w")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint3/" + (robot.currentJointAngles[2] + 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint3/" + (robot.currentJointAngles[2] + 0.2));
                 } else if (keyboard.pressed("3+s")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint3/" + (robot.currentJointAngles[2] - 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint3/" + (robot.currentJointAngles[2] - 0.2));
                 } else if (keyboard.pressed("4+w")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint4/" + (robot.currentJointAngles[3] + 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint4/" + (robot.currentJointAngles[3] + 0.2));
                 } else if (keyboard.pressed("4+s")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint4/" + (robot.currentJointAngles[3] - 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint4/" + (robot.currentJointAngles[3] - 0.2));
                 } else if (keyboard.pressed("5+w")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint5/" + (robot.currentJointAngles[4] + 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint5/" + (robot.currentJointAngles[4] + 0.2));
                 } else if (keyboard.pressed("5+s")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint5/" + (robot.currentJointAngles[4] - 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint5/" + (robot.currentJointAngles[4] - 0.2));
                 } else if (keyboard.pressed("6+w")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint6/" + (robot.currentJointAngles[5] + 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint6/" + (robot.currentJointAngles[5] + 0.2));
                 } else if (keyboard.pressed("6+s")){
-                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint6/" + (robot.currentJointAngles[5] - 0.1));
+                    $.get("http://avogadro.beowulf.uwo.ca:8080/rosbridge/device/write/testDevice/joint6/" + (robot.currentJointAngles[5] - 0.2));
                 }
                 
                 camera.lookAt(scene.position);
@@ -373,7 +373,7 @@
                 counter++
                 if(counter < 100)
                 {
-                var rotSpeed = 0.001;
+                var rotSpeed = 0.01;
                 
                 robot.currentJointAngles[0] += rotSpeed;
                 robot.currentJointAngles[1] += rotSpeed;
