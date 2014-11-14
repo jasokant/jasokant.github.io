@@ -1,0 +1,86 @@
+<md-sidenav class="realm-app__sidenav realm-app__sidenav--student md-toolbar md-sidenav-left md-whiteframe-z2 cbt" component-id="left" is-locked-open="true"> 
+	<md-toolbar class="realm-app__sidenav--student__toolbar md-tall md-deep-purple-theme cbt">
+		<div class="realm-app__sidenav--student__toolbar__avatar-container ">
+			<i class="realm-app__sidenav--student__toolbar__avatar mdi mdi-account-circle cbt"></i>
+		</div>
+		<md-content class="realm-app__sidenav--student__toolbar__email-container md-light-blue-dark-theme cbt">
+			<span class="md-padded">jasokant@gmail.com</span>
+		</md-content>
+	</md-toolbar>
+
+	<md-content class="realm-app__sidenav__content md-whiteframe-z1" layout="vertical">
+		<!--<md-list>-->	
+			<md-button class="realm-app__sidenav__content__item" ui-sref="index.login">
+				<md-item-content>
+					<div class="md-tile-left">
+						<i class="mdi mdi-schedule"></i>
+					</div>
+					<div class="md-tile-content cbt">
+						<span class="md-tile-content__text cbt">Sessions</span>
+					</div>
+				</md-item-content>
+			</md-button>
+
+			<md-divider></md-divider>
+			
+			<md-button class="realm-app__sidenav__content__item" ui-sref="student.sessions">
+				<md-item-content>
+					<div class="md-tile-left">
+						<i class="mdi mdi-school"></i>
+					</div>
+					<div class="md-tile-content cbt">
+						<span class="md-tile-content__text cbt">Courses</span>
+					</div>
+				</md-item-content>
+			</md-button>
+
+			<md-divider></md-divider>
+
+			<md-button class="realm-app__sidenav__content__item" ui-sref="student.sessions">
+				<md-item-content>
+					<div class="md-tile-left">
+						<i class="mdi mdi-account-box"></i>
+					</div>
+					<div class="md-tile-content cbt">
+						<span class="md-tile-content__text cbt">Profile</span>
+					</div>
+				</md-item-content>
+			</md-button>
+
+			<md-divider></md-divider>
+
+			<md-button class="realm-app__sidenav__content__item" ui-sref="student.sessions">
+				<md-item-content>
+					<div class="md-tile-left">
+						<i class="mdi mdi-event"></i>
+					</div>
+					<div class="md-tile-content cbt">
+						<span class="md-tile-content__text cbt">Schedule</span>
+					</div>
+				</md-item-content>
+			</md-button>
+
+			<md-divider></md-divider>
+
+			<md-button class="realm-app__sidenav__content__item notifications-button" ui-sref="student.sessions">
+				<md-item-content class="md-item">
+					<div class="md-tile-left">
+						<i class="mdi mdi-question-answer"></i>
+					</div>
+					<div class="md-tile-content">
+						<span class="md-tile-content__text cbt">Notifications</span>
+						<span class="notifications-badge cbt md-whiteframe-z1">1
+						</span>
+					</div>
+				</md-item-content>
+			</md-button>
+
+			<md-divider></md-divider>
+		<!--/md-list-->
+	</md-content>
+</md-sidenav>
+
+<md-content class="realm-app__content" layout-fill>
+   <div ui-view>
+   </div>
+</md-content>

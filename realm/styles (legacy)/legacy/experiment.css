@@ -1,0 +1,101 @@
+ui-section {
+  z-index: 0; }
+
+.section-template {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto; }
+
+.section-content {
+  margin-top: 20px; }
+
+.section-header {
+  /*position:relative;*/
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgray; }
+
+.section-title {
+  font-size: 1.7em;
+  color: #646464; }
+
+ui-component {
+  display: table;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4); }
+
+camera-feed-component, angle-input-component, simulation-component {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.video-stream {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+info-input-component {
+  display: block;
+  width: 100%; }
+
+info-input-component .ui.input {
+  padding: 10px;
+  width: 400px;
+  z-index: 0; }
+
+.simulation {
+  /*width:400px;*/
+  /*height:300px;*/ }
+
+.simulation canvas {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.component-header {
+  position: relative;
+  padding: 0.3em;
+  padding-left: 50px;
+  padding-right: 50px;
+  cursor: pointer; }
+  .component-header .icon {
+    position: absolute;
+    top: 0;
+    right: 5px; }
+    .component-header .icon i {
+      font-size: 1.7em;
+      color: dimgray; }
+      .component-header .icon i:hover {
+        color: lightblue; }
+
+.component-title {
+  font-size: 1.2em;
+  color: dimgray; }
+
+.component-content {
+  -webkit-transition: height 0.3s;
+  transition: height 0.3s; }
+
+#controlsContainer {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 75%;
+  float: left; }
+
+.ui.icon.buttons {
+  width: 70px;
+  height: 100% !important; }
+
+.ui.icon.buttons .button {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 100%;
+  width: 35px;
+  float: left; }
+
+.ui.icon.buttons .button i {
+  margin-left: auto;
+  margin-right: auto; }
+
+input[type="number"] {
+  height: 3.275em; }
