@@ -5,7 +5,7 @@ var deps = [
   'ngAnimate',
   'ui.router',
   'ui.bootstrap', 
-  'ui.date'
+  'ui.date',
   'realm.services',
   'realm.directives',
   'realm.utils',
