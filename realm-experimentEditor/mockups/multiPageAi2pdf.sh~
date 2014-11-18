@@ -1,8 +1,0 @@
- #!/bin/bash
-PAGES = $1
-COUNTER = 0
-
-while [$COUNTER -lt $PAGES]; do
-	echo The counter is $COUNTER
-	$COUNTER=$COUNTER+1
-done 
