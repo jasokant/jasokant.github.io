@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
     <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
-    <link rel="shortcut icon" href="favicon.png">    
+    <link rel="shortcut icon" href="images/icons/favicon.png">    
 
     <!--STYLESHEETS-->
 
@@ -44,7 +44,6 @@
   </head>
   
   <body ng-app="realm">
-    <brick-calendar></brick-calendar>
     <div ng-controller="MainController" class="app" layout="vertical" layout-fill>
       <section layout="horizontal" flex ui-view class="realm-app">
         
@@ -93,8 +92,13 @@
 
     <!--realm scripts-->
       <!--Core-->
-      <script src="core/realm.module.js"></script>
-      <script src="core/realm.core.js"></script>
+        <script src="core/realm.module.js"></script>
+        <script src="core/realm.core.js"></script>
+        <script src="core/realm.directives.js"></script>
+        <script src="core/realm.controllers.js"></script>
+        <script src="core/realm.services.js"></script>
+        <script src="core/realm.core.js"></script>
+        <script src="core/realm.utils.js"></script>
       <!---->
 
       <!--State Configs-->
@@ -131,22 +135,24 @@
       <script src="core/services/RobotService.js"></script>
       <script src="core/services/AuthService.js"></script>
       <script src="core/services/RepoService.js"></script>
+      <script src="core/services/LayoutService.js"></script>
       <!---->
         
       <!--Components-->
-      <script src="components/uiExperiment/uiExperiment.js"></script>
-      <script src="components/uiSection/uiSection.js"></script>
-      <script src="components/uiComponent/uiComponent.js"></script>
-      <script src="components/cameraFeed/cameraFeedComponent.js"></script>
-      <script src="components/angleInput/angleInputComponent.js"></script>
-      <script src="components/poseInput/poseInputComponent.js"></script>
-      <script src="components/poseState/poseStateComponent.js"></script>
-      <script src="components/angleState/angleStateComponent.js"></script>
-      <script src="components/simulation/simulationComponent.js"></script>
-      <script src="components/joystickInput/joystickInputComponent.js"></script>
-      <script src="components/trajectory/trajectoryComponent.js"></script>
-      <script src="components/playBack/playBackComponent.js"></script>
-      <script src="components/poseVisualization/poseVisualizationComponent.js"></script>
+      <script src="../realm-components/realm-components.module.js"></script>
+      <script src="../realm-components/uiExperiment/uiExperiment.js"></script>
+      <script src="../realm-components/uiSection/uiSection.js"></script>
+      <script src="../realm-components/uiComponent/uiComponent.js"></script>
+      <script src="../realm-components/cameraFeed/cameraFeedComponent.js"></script>
+      <script src="../realm-components/angleInput/angleInputComponent.js"></script>
+      <script src="../realm-components/poseInput/poseInputComponent.js"></script>
+      <script src="../realm-components/poseState/poseStateComponent.js"></script>
+      <script src="../realm-components/angleState/angleStateComponent.js"></script>
+      <script src="../realm-components/simulation/simulationComponent.js"></script>
+      <script src="../realm-components/joystickInput/joystickInputComponent.js"></script>
+      <script src="../realm-components/trajectory/trajectoryComponent.js"></script>
+      <script src="../realm-components/playBack/playBackComponent.js"></script>
+      <script src="../realm-components/poseVisualization/poseVisualizationComponent.js"></script>
       <!---->
 
       <!--Utilities-->

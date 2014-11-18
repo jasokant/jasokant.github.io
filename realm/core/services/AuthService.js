@@ -1,10 +1,8 @@
 'use strict';
 
-realm_services.('AuthService', function($http, $q, $timeout, $rootScope, RepoService){
-
+angular.module('realm.services').service('AuthService', function($q){
         //reference to AuthService
-        var that = this;       
-
+        var that = this;  
         var serverDown = true;
 
         //urls

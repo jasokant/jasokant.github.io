@@ -1,9 +1,9 @@
 'use strict';
 
-realm_services.('CameraFeedService',function($http, $q){
+realm_services.service('CameraFeedService',function($http, $q){
         
         var that = this;
-
+        
         this.getCurrentFrame = function(cameraPath){
             var src = $q.defer();
             

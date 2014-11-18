@@ -1,10 +1,14 @@
 'use strict';
 
-realm_services.('RepoService',function($http, $q) {
+realm_services.service('RepoService',function($http, $q) {
 
         var that = this;
 
         var serverDown = true;
+
+        this.test = function() {
+            return 'asdf'
+        }
 
         if(!serverDown)
         {

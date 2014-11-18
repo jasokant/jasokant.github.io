@@ -1,6 +1,6 @@
 'use strict';
 
-realm_services.('RobotService',function($http, $q){         
+realm_services.service('RobotService',function($http, $q){         
         
         var that = this;
 

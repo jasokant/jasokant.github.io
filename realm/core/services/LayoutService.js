@@ -1,8 +1,12 @@
-'use strict'
+'use strict';
 
-realm_services.('LayoutService', function($http, $q, $timeout, $rootScope, RepoService){
+angular.module('realm.services').service('LayoutService', function(){
 	var that = this;
 	
+
+
+    alert('test');
+
 	this.getLayout = function(assignmentLocation)
 	{
 		var deferred = $q.defer();
