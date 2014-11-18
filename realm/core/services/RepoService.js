@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('REALM')
-    .service('RepoService',function($http, $q) {
+realm_services.('RepoService',function($http, $q) {
 
         var that = this;
 

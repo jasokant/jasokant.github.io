@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('REALM')
-    .service('CameraFeedService',function($http, $q){
+realm_services.('CameraFeedService',function($http, $q){
         
         var that = this;
 

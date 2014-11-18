@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM')
+angular.module('realm')
 .controller('StudentCoursesController', function ($scope, $rootScope, AuthService, $state) {
     
 });

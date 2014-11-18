@@ -1,4 +1,4 @@
-angular.module('REALM').directive("passwordVerify", function() {
+angular.module('realm').directive("passwordVerify", function() {
    return {
       require: "ngModel",
       scope: {

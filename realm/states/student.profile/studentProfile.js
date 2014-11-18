@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM')
+angular.module('realm')
 .controller('StudentProfileController', function ($scope, $rootScope, AuthService, state) {
 
         $scope.user = AuthService.getCurrentUser().value;

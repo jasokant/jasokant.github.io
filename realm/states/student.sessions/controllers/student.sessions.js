@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM')
+angular.module('realm')
 .controller('StudentSessionsController', function ($scope, $rootScope, AuthService, $state, $http, $q,RepoService, $mdDialog) {
 
 	var layout={};

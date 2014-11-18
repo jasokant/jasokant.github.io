@@ -1,4 +1,6 @@
-angular.module('REALM').controller('MainController', function($rootScope, $scope, AuthService, $mdSidenav){
+'use strict';
+
+realm.controller('MainController', function($rootScope, $scope, AuthService, $mdSidenav){
 
   $scope.openLeft = function()
   {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM').controller('DialogController', function($scope, $timeout, $mdSidenav, $mdDialog) {
+realm_controllers.controller('DialogController', function($scope, $timeout, $mdSidenav, $mdDialog) {
   $scope.hide = function() {
     $mdDialog.hide();
   };

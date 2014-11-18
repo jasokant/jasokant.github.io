@@ -1,6 +1,6 @@
 'use strict'
 
-app.directive('numericInput', function () {
+realm.directive('numericInput', function () {
     return    {
         restrict: 'E',
         replace: true,

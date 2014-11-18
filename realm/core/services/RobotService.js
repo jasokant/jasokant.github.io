@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('REALM')
-    .service('RobotService',function($http, $q){         
+realm_services.('RobotService',function($http, $q){         
         
         var that = this;
 

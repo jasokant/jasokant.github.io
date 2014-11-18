@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM')
+angular.module('realm')
 .controller('SignupController', function ($scope, $rootScope, $http, $q, AuthService, RepoService, $state, $mdDialog, $mdToast) {
     
     $scope.$parent.vm.selectedIndex=1;

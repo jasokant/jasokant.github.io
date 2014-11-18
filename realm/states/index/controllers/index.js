@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM')
+angular.module('realm')
 .controller('IndexController', function ($scope, $rootScope, AuthService, $state) {
 
 	$scope.vm = {

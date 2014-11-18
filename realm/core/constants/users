@@ -1,0 +1,6 @@
+realm_constants.constant('USER_ROLES', {
+  admin: 'admin',
+  teacher: 'teacher',
+  student: 'student',
+  guest: 'guest'
+});

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM')
+angular.module('realm')
 
 .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 

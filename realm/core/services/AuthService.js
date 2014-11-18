@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('REALM')
-    .service('AuthService', function($http, $q, $timeout, $rootScope, RepoService){
+realm_services.('AuthService', function($http, $q, $timeout, $rootScope, RepoService){
 
         //reference to AuthService
         var that = this;       
@@ -19,7 +18,7 @@ angular.module('REALM')
         		
         		var deferred = $q.defer();
         			
-                //Call REALM Login API
+                //Call realm Login API
                 $http.post(localStorage.basePath + loginPath,{"username": credentials.email, "password": credentials.password}, {withCredentials:true})
                     .then(function(response){
                         
@@ -61,7 +60,7 @@ angular.module('REALM')
             this.signup = function(accountDetails) {
                 var deferred = $q.defer();
                 
-                //Call REALM Signup API
+                //Call realm Signup API
                 $http.post(localStorage.basePath + signupPath, {email: accountDetails.email, password: accountDetails.password, fullName: accountDetails.name}).then(function(response){
                     console.log(response);
                     deferred.resolve();

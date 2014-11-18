@@ -44,7 +44,7 @@ md-toolbar.banner {
 }
 
     md-toolbar.banner a {
-        background-image: url(../images/REALMBanner.png);
+        background-image: url(../images/realmBanner.png);
         background-size: contain;
         background-position:74px;
         background-repeat: no-repeat;
@@ -125,7 +125,7 @@ md-toolbar.banner {
     margin-left:32px;
     margin-top:32px;
 
-    background-image:url('../../mockups/REALMBanner.png');
+    background-image:url('../../mockups/realmBanner.png');
 }
 
 .realm-app__content--index__content {
@@ -560,7 +560,7 @@ md-item-content
     margin-left:32px;
     margin-top:64px;
 
-    background-image:url('../../mockups/REALMBanner.png');
+    background-image:url('../../mockups/realmBanner.png');
 }
 
 

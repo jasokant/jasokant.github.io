@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM').controller('joinSessionDialogController', function($scope, $timeout, $mdSidenav, $mdDialog) {
+angular.module('realm').controller('joinSessionDialogController', function($scope, $timeout, $mdSidenav, $mdDialog) {
   
   $scope.vm = {
   	sessionToken:""

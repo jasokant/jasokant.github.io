@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM').config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+angular.module('realm').config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
 	$stateProvider
 		.state('index.signup', {

@@ -19,8 +19,8 @@
    enable-background="new 0 0 64 64"
    xml:space="preserve"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="REALMBanner.svg"
-   inkscape:export-filename="/home/joshua/Documents/REALM/realmproject-code/website/service/src/main/webapp/app/mockups/REALMBanner.png"
+   sodipodi:docname="realmBanner.svg"
+   inkscape:export-filename="/home/joshua/Documents/realm/realmproject-code/website/service/src/main/webapp/app/mockups/realmBanner.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"><metadata
      id="metadata25"><rdf:RDF><cc:Work
@@ -99,5 +99,5 @@
              x="65.326149"
              id="tspan2996-4"
              sodipodi:role="line"
-             style="font-size:65.87574768px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:0.94117647;font-family:Roboto;-inkscape-font-specification:Roboto Light">REALM</tspan></text>
+             style="font-size:65.87574768px;font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:0.94117647;font-family:Roboto;-inkscape-font-specification:Roboto Light">realm</tspan></text>
 </g></g></g></svg>

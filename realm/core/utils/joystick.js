@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM').directive('joystick', function() {
+angular.module('realm.utils').directive('joystick', function() {
   return {
     restrict: 'E',
     replace: false,

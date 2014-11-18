@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('REALM').directive('equals', function() {
+angular.module('realm.utils').directive('equals', function() {
   return {
     restrict: 'A', // only activate on element attribute
     require: '?ngModel', // get a hold of NgModelController
