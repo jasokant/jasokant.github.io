@@ -569,6 +569,7 @@ md-item-content
 
 
 
+
 .student-session-card
 {
     /*width:368px;
@@ -600,19 +601,40 @@ md-item-content
     font-weight: 300;
     font-size:32px;
 
+    display:none;
+
     position:absolute;
     margin:0;
     left:24px;
     top:24px;
 }
 
+.student-session-card__toolbar__calendar-button
+{
+    height:88px;
+    width:72px;
+
+    position:absolute;
+    right:88px;
+}
+
+.student-session-card__toolbar__calendar-button i
+{
+    font-size:32px;
+}
+
+.student-session-card__toolbar__launch-button i
+{
+    font-size:32px;
+}
+
 .student-session-card__toolbar__launch-button
 {
     height:88px;
-    width:52px;
+    width:72px;
 
     position:absolute;
-    right:0px;
+    right:16px;
 }
 
 .student-session-card__toolbar__launch-button i
@@ -668,6 +690,22 @@ md-item-content
     margin-bottom:16px;
 }*/
 
+.sort-sessions-button
+{
+    height:64px;
+    width:64px;
+
+    z-index:111 !important;
+
+    position:absolute;
+    right:0px;
+}
+
+.sort-sessions-button i
+{
+    font-size: 32px;
+}
+
 .join-session-button
 {
     position:fixed;
@@ -682,6 +720,8 @@ md-item-content
 {
     font-size:24px;
 }
+
+
 
 /*------------------------------------*\
     #SM
@@ -702,6 +742,11 @@ md-item-content
         height:128px;
     }
 
+    .studentSessions-toolbar__title {
+        left:24px;
+        top:64px;
+    }
+
     .student-session-card {
         max-height: calc(100vh - 128px - 16px - 16px);
     }
@@ -710,13 +755,10 @@ md-item-content
         margin-top: calc(128px + 16px);
     }
 
-    .studentSessions-toolbar__title {
-
-        left:24px;
-        top:64px;
+    .student-session-card__toolbar__title
+    {
+        display:block;
     }
-
-    
 }
 
 /*------------------------------------*\
@@ -760,6 +802,11 @@ md-item-content
     {
         margin-bottom:104px;
     }*/
+
+    .student-session-card__toolbar__title
+    {
+        display:block;
+    }
 
 
 }
@@ -805,5 +852,10 @@ md-item-content
     {
         margin-bottom:104px;
     }*/
+
+    .student-session-card__toolbar__title
+    {
+        display:block;
+    }
 
 }

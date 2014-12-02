@@ -1,11 +1,14 @@
 'use strict';
 
 angular.module('realm')
-.controller('StudentSessionsController', function ($scope, $rootScope, AuthService, $state, $http, $q,RepoService, $mdDialog) {
+.controller('StudentSessionsController', function ($scope, $rootScope, AuthService, GAuthService, $state, $http, $q,RepoService, $mdDialog) {
 
 	var layout={};
 
 	$scope.vm = {
+		predicate: 'startDate',
+		reverse: false,
+		showPast:false,
 		sessions:[{
 			loc:'Session-1',
 	        assignment: {
@@ -55,25 +58,50 @@ angular.module('realm')
 	});
 
 	$scope.addSession = function(ev) {
-		/*$mdDialog.show({
+		$mdDialog.show({
 			templateUrl: 'states/student.sessions/partials/student.sessions.joinSessionDialog.tpl.html',
 			targetEvent: ev,
-			controller: 'DialogController'
-		}).then(function(){
-			console.log('dialog OK')
+			controller: 'joinSessionDialogController'
+		}).then(function(sessionToken){
+			console.log('dialog OK');
+			$scope.vm.sessions.unshift({
+				'sessionToken': sessionToken
+			});
 		},function(){
-			console.log('dialog CLOSED')
-		})*/
+			console.log('dialog CLOSED');
+		})
 		
-		$scope.vm.sessions.unshift({});
+		
 	}
 
 	$scope.removeSession = function(index) {
 		$scope.vm.sessions.shift();
 	}
 
+	$scope.addSessionToGCal = function(session) {
+		var eventResource = {
+	      'calendarID': GAuthService.userCalendarId,
+	      'sendNotifications': true,
+	      'description': session.assignment.name,
+	      'start':{
+	      	'dateTime': session.startDate.format()
+	      },
+	      'end':{
+	      	'dateTime':	session.endDate.format()
+	      }
+
+	    }
+
+		GAuthService.authorize(GAuthService.createSessionEvent(eventResource));
+	}
+
 	$scope.launchExperiment = function(assignmentLocation) {
 		$state.go('experiment',{assignmentLocation: assignmentLocation});
 	}
 
+	$scope.myFilter = function(item)
+	{
+		if($scope.vm.showPast) return true;
+		else return !item.endDate.isBefore(moment());
+	}
 });

@@ -4,20 +4,31 @@
 			<md-toolbar scrollshrink class="studentSessions-toolbar cbt">
 				<h1 class="studentSessions-toolbar__title studentSessions-toolbar__title--1">REALM > </h1>
 			   	<h1 class="studentSessions-toolbar__title studentSessions-toolbar__title--2" cbt>Sessions</h1>
+
+
 			</md-toolbar>
 		</div>	
 	</section>
 
 	<section class='studentSessions__scrollview'>
 		
+		<md-button class="sort-sessions-button">
+			<i class="mdi mdi-sort">
+			</i>
+		</md-button>
+
 		<md-button ng-click="addSession()" class="join-session-button md-fab cbt">
 			<i class="mdi mdi-add"></i>
 		</md-button>
 
 		<md-content class="scroll" style="width:100%; height:100%; background:transparent" layout="vertical">
-			<section ng-repeat="session in vm.sessions" class="student-session-card md-card cbt" layout="vertical">
+			<section ng-repeat="session in vm.sessions | filter:myFilter | orderBy:vm.predicate:vm.reverse" class="student-session-card md-card cbt" layout="vertical">
 				<md-toolbar class="student-session-card__toolbar">
 					<h2 class="student-session-card__toolbar__title">{{session.assignment.name}}</h2>
+					<md-button class="student-session-card__toolbar__calendar-button" ng-disabled="session.startDate.isBefore(moment())" ng-click="addSessionToGCal(session)">
+						<i class="mdi mdi-event">
+						</i>
+					</md-button>
 					<md-button class="student-session-card__toolbar__launch-button" ng-disabled="!session.isActive" ng-click="launchExperiment(session.assignment.loc)">
 						<i class="mdi mdi-launch">
 						</i>
