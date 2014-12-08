@@ -1,0 +1,38 @@
+<div class="modal">
+    <header class="bar bar-header bar-positive">
+        <h1 class="title">New Case</h1>
+        <button class="button button-clear button-positive" ng-click="closeModal()">Cancel</button>
+    </header>
+    <div class="card ui input">
+        <form name="newCaseForm">
+            <label for="course">Course</label>  
+            <select ng-required ng-model="formData.selectedCourseOption" ng-options="co.name for co in formData.courseOptions">
+                <option value="">--Choose Course--</option>
+            </select>
+            
+            <label for="type">Type</label>
+            <select  ng-required ng-model="formData.selectedCaseTypeOption" ng-options="cto.name for cto in formData.caseTypeOptions">
+                <option value="">--Choose Type--</option>
+            </select>
+            
+            <label for="caption">Caption</label>  
+            <input ng-required type="text" placeholder="" ng-model="formData.caption">
+            
+            <label for="priority">Priority</label>
+            <select ng-required ng-model="formData.selectedPriorityOption" ng-options="po.name for po in formData.priorityOptions">
+                <option value="">--Choose Priority--</option>
+            </select>
+            
+            <label for="assignment">Assignment</label>
+            <select ng-required ng-model="formData.selectedAssignmentOption" ng-options="ao.name for ao in formData.assignmentOptions | filter:{courseID:formData.selectedCourseOption.id}">
+                <option value="">--Choose Assignment--</option>
+            </select>
+            
+            <label for="dueDate">Due Date</label>
+            <input  ng-required ui-date />
+            
+            <button class="ui button green half-width" ng-disabled="newCaseForm.$invalid" ng-click="createNewCase()">Create</button>
+            <button class="ui button red half-width" ng-click="closeModal()">Cancel</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<h1>Entity CRUD</h1>
+
+<h2>Transaction Options</h2>
+<ng-form name="Transaction Metadata">
+	<label>Choose Entity Type</label>
+	<select ng-model="transactionMetaData.selectedEntityType" ng-options="entityType for entityType in transactionMetaData.entityTypes"></select>
+	<label>Choose Action</label>
+	<select ng-model="transactionMetaData.selectedActionType" ng-options="actionType for actionType in transactionMetaData.actionTypes"></select>
+</ng-form>
+
+<ng-form name="Transaction Data">	
+	<ng-form ng-show="transactionMetaData.selectedActionType=='Create'" name="Create Entity">
+		<h3>Create {{transactionMetaData.selectedEntityType}}</h3>
+
+		<h4>Properties</h4>
+		<div ng-repeat="property in entityMetaData[transactionMetaData.selectedEntityType].properties">
+			<input ng-model="newEntity.properties[property]" placeholder="{{property}}"></input> 
+		</div>
+
+		<h4>References</h4>
+		<div ng-repeat="singularRef in entityMetaData[transactionMetaData.selectedEntityType].references.singular">
+			<label ng-init="newEntity.references.singular[$index]={name:singularRef.name}">{{singularRef.name}}</label>
+			<input ng-model="newEntity.references.singular[$index]['val']" placeholder="{{singularRef.href}} ID"></input>
+		</div>
+
+		<div ng-repeat="multipleRef in entityMetaData[transactionMetaData.selectedEntityType].references.multiple">
+			<label ng-init="newEntity.references.multiple[$index]={name: multipleRef.name,val:[]}">{{multipleRef.name}}</label>
+			<div ng-repeat="ref in newEntity.references.multiple[$index].val">
+				<input ng-model="newEntity.references.multiple[$parent.$index].val[$index]" placeholder="{{multipleRef.href}} ID"></input>
+			</div>
+			<input ng-model="newReferences[$index]" placeholder="{{multipleRef.href}} ID"></input>
+			<button ng-click="addReference(newEntity.references.multiple[$index].val,newReferences[$index])">Add {{multipleRef.href}} to {{multipleRef.name}}</button>
+		</div>
+
+		<button ng-click="createEntity()">CREATE {{transactionMetaData.selectedEntityType}}</button>
+	</ng-form>
+	
+	<ng-form ng-show="transactionMetaData.selectedActionType=='Read/Update'" name="Read/Update Entity">
+		<h3>Read/Update Entity</h3>
+		<input ng-model="entityToRead.loc" placeholder="{{transactionMetaData.selectedEntityType}} ID"></input>
+		<button ng-click=>READ</button>
+
+		<ng-form>
+			<div ng-repeat="(key,val) in entityToRead.value">
+				<label>{{key}}</label>
+				<input ng-hide="isArray(val)" ng-model="val"></input>
+				<div ng-show="isArray(val)" ng-repeat="item in val">
+					<input ng-model="val[$index]"></input>
+				</div>
+			</div>
+			<button>UPDATE {{transactionMetaData.selectedEntityType}}</button>
+		</ng-form>
+	</ng-form>
+</ng-form>
