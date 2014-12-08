@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('realm.services').service('AuthService', function($q){
+angular.module('realm.services').service('AuthService', function($http,$q){
         //reference to AuthService
         var that = this;  
         var serverDown = true;
