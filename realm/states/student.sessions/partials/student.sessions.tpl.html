@@ -32,7 +32,7 @@
 			<section ng-repeat="session in vm.sessions | filter:myFilter | orderBy:vm.predicate:vm.reverse" class="student-session-card md-card cbt" layout="vertical">
 				<md-toolbar class="student-session-card__toolbar">
 					<h2 class="student-session-card__toolbar__title">{{session.assignment.name}}</h2>
-					<md-button class="student-session-card__toolbar__calendar-button" ng-disabled="false" ng-click="addSessionToGCalButtonClicked(session)">
+					<md-button class="student-session-card__toolbar__calendar-button" ng-disabled="false" ng-click="addSessionToGCal(session)">
 						<i class="mdi mdi-event">
 						</i>
 					</md-button>
