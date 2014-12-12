@@ -36,7 +36,7 @@ app.directive('poseStateComponent', ['$timeout', '$http', '$q', 'RobotService', 
             
             var robotPath = $scope.component.componentOptions.url;
 
-            var getPoseState = function(){
+            /*var getPoseState = function(){
                 RobotService.getPose(robotPath).then(function(poseState){
                     $scope.data.position = poseState.position;
                     $scope.data.orientation = poseState.orientation;
@@ -47,7 +47,7 @@ app.directive('poseStateComponent', ['$timeout', '$http', '$q', 'RobotService', 
                 });
             };
 
-            getPoseState();
+            getPoseState();*/
         },
 
         compile: function CompilingFunction(tElement, tAttrs)

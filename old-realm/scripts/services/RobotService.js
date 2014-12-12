@@ -17,7 +17,64 @@ angular.module('REALM')
         }
 
         /********ROBOT API***********/
+            
+            /*************JOYSTICK**********/
 
+            this.move = function(moveDeviceCallback, devicePath, x1, y1, x2, y2) {
+                moveDeviceCallback(devicePath,x1,y1,x2,y2);
+            }
+
+            this.moveMico = function(devicePath,x1,y1,x2,y2) {
+                console.log('moveMico(' +  x1 + ',' + y1 + ',' +  x2 + ',' + y2 + ') -----> twist: {"linear": { x":' + x1 + ',"y": ' + y1 + ',"z": ' + y2 + '} "angular":{"x":0,"y":0,"z":0} }');
+
+                var postData = {
+                    'action': "move",
+                    'arguments': {
+                        'linear': {
+                            'x':x1,
+                            'y':y1,
+                            'z':y2
+                        },
+                        'angular': {
+                            x:0,
+                            y:0,
+                            z:0
+                        }
+                    }
+                };
+
+                $http.post(localStorage.basePath + devicePath, postData).then(function(response){
+                    console.log('Sent joystick input to ' + devicePath + ' successfully');
+                }, function(response){
+                    console.log('Could not send joystick input to ' + devicePath + '. Error Code: ' + response.status);
+                });
+            }
+
+            this.moveHusky = function(devicePath,x1,y1,x2,y2) {
+                console.log('moveHusky(' +  x1 + ',' + y1 + ',' +  x2 + ',' + y2 + ') -----> twist: {"linear": { x":' + (x1/2) + ',"y":0,"z":0} "angular":{"x":0,"y":0,"z":' + (y2/2) + '} }');
+                
+                var postData = {
+                    'action': "move",
+                    'arguments': {
+                        'linear': {
+                            'x':(x1/2),
+                            'y':0,
+                            'z':0
+                        },
+                        'angular': {
+                            x:0,
+                            y:0,
+                            z:(y2/2)
+                        }
+                    }
+                };
+
+                $http.post(localStorage.basePath + devicePath, postData).then(function(response){
+                    console.log('Sent joystick input to ' + devicePath + ' successfully');
+                }, function(response){
+                    console.log('Could not send joystick input to ' + devicePath + '. Error Code: ' + response.status);
+                });
+            }
 
             /**************GETTERS**************/
             this.getJoints = function(devicePath){
@@ -137,38 +194,4 @@ angular.module('REALM')
                     console.log('Failed to send robot to home position, error: ' + response.status);
                 });
             }
-            //JOYSTICK
-            this.move = function(devicePath,x,y,z) {
-                z = z*-1;
-
-                var postData = {
-                    'action': "move",
-                    'arguments': {
-                        'linear': {
-                            'x':x,
-                            'y':y,
-                            'z':z
-                        },
-                        'angular': {
-                            x:0,
-                            y:0,
-                            z:0
-                        }
-                    }
-                };
-                //console.log(postData);
-               // console.log("robot service: "+ 'x: ' +  x +  " y: " +  y + " z: " + z);
-                $http.post(localStorage.basePath + devicePath, postData).then(function(response){
-                    console.log("Performed 'move' action on robot successfully for "+ "x: " +  x +  " y: " +  y + " z: " + z);
-                },function(response){
-                    console.log("Robot 'move' action failed, error code for: "+"x: " +  x +  " y: " +  y + " z: " + z);
-                    if(x==0 && y==0 && z==0)
-                    {
-                        that.move(devicePath,0,0,0);
-                    }
-                });
-
-                //console.log('MOVE x:' + x + ' y: ' + y + ' z: ' + z);
-            }
-
     });

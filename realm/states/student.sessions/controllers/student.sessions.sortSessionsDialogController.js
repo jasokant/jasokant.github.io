@@ -3,7 +3,9 @@
 angular.module('realm').controller('sortSessionsDialogController', function($scope, $timeout, $mdSidenav, $mdDialog) {
   
   $scope.vm = {
-  	sessionToken:""
+    predicateOption: 'startDate',
+    reverseOption: 'false',
+    showPastOption: 'false'
   }
 
   $scope.hide = function() {
@@ -14,7 +16,17 @@ angular.module('realm').controller('sortSessionsDialogController', function($sco
     $mdDialog.cancel();
   };
 
-  $scope.answer = function(answer) {
-    $mdDialog.hide(answer);
+  $scope.answer = function() {
+    if($scope.vm.reverseOption === 'true')
+      $scope.vm.reverseOption = true;
+    else
+      $scope.vm.reverseOption = false;
+
+    if($scope.vm.showPastOption === 'true')
+      $scope.vm.showPastOption = true;
+    else
+      $scope.vm.showPastOption = false;
+
+    $mdDialog.hide($scope.vm);
   };
 })

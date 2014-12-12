@@ -1,15 +1,20 @@
 'use strict';
 
 angular.module('realm')
-.controller('StudentSessionsController', function ($scope, $rootScope, AuthService, GAuthService, $state, $http, $q,RepoService, $mdDialog) {
-
+.controller('StudentSessionsController', function ($scope, $rootScope, AuthService, GAuthService, $state, $http, $q,RepoService, $mdDialog, $timeout, $mdSidenav) {
 	var layout={};
 
 	$scope.vm = {
 		predicate: 'startDate',
 		reverse: false,
-		showPast:false,
-		sessions:[{
+		showPast: true
+	}
+
+	//Entry delay for animations
+	$timeout(function(){
+		$('.mdi-replay').hide();
+
+		$scope.vm.sessions = [{
 			loc:'Session-1',
 	        assignment: {
 	        	name:'Forward Kinematics',
@@ -49,13 +54,17 @@ angular.module('realm')
 	        endDate: moment().add(1,'days'),
 	        sessionToken: 'asdfaQWEerfzfsxd1231',
 	        devices: ['mico']
-	    }]//,
-	    //sessions:[{}]
-	}
+	    }];
 
-	$scope.vm.sessions.forEach(function(element,index,array){
-		element.isActive = moment().isAfter(element.startDate) && moment().isBefore(element.endDate);
-	});
+	    $scope.vm.sessions.forEach(function(element,index,array){
+			element.isActive = moment().isAfter(element.startDate) && moment().isBefore(element.endDate);
+		});
+
+		$('.join-session-button, .sort-sessions-button').addClass('animated rubberBand');
+
+		
+	},2000);
+	
 
 	$scope.addSession = function(ev) {
 		$mdDialog.show({
@@ -65,11 +74,21 @@ angular.module('realm')
 		}).then(function(sessionToken){
 			console.log('dialog OK');
 			$scope.vm.sessions.unshift({
-				'sessionToken': sessionToken
-			});
+				loc:'Session-1',
+		        assignment: {
+		        	name:'Forward Kinematics',
+		        	loc:'Assignment-1'
+		    	},
+		        startDate: moment().subtract(1,'days'),
+		        endDate: moment().add(1,'days'),
+		        sessionToken: sessionToken,
+		        devices: ['mico']
+		    });
+
+			$scope.reloadSessions();
 		},function(){
 			console.log('dialog CLOSED');
-		})
+		});
 		
 		
 	}
@@ -79,24 +98,70 @@ angular.module('realm')
 	}
 
 	$scope.addSessionToGCal = function(session) {
-		var eventResource = {
-	      'calendarID': GAuthService.userCalendarId,
-	      'sendNotifications': true,
-	      'description': session.assignment.name,
-	      'start':{
-	      	'dateTime': session.startDate.format()
-	      },
-	      'end':{
-	      	'dateTime':	session.endDate.format()
-	      }
+		gapi.client.load('calendar','v3',function(){
+			GAuthService.authorize().then(function(){
+				console.log(gapi);
+				//SUCCESS
+				GAuthService.getSessionsCalendarId().then(function(calendarId){
+			      //SUCCESS
+			      GAuthService.createEvent(calendarId, true, session.assignment.name, session.startDate.format(), session.endDate.format()).then(function(){
+			        //SUCCESS
+			      },function(){
+			        //FAILURE
+			      });
+			    },function(){
+			      //FAILURE
+			    })
 
-	    }
+			}, function(){
+				//FAILURE
+			});
+		});
+	}
 
-		GAuthService.authorize(GAuthService.createSessionEvent(eventResource));
+	$scope.menuButtonClicked = function()
+	{
+		$mdSidenav.toggle();
 	}
 
 	$scope.launchExperiment = function(assignmentLocation) {
 		$state.go('experiment',{assignmentLocation: assignmentLocation});
+	}
+
+	$scope.sortSessions = function(){
+		$mdDialog.show({
+			templateUrl: 'states/student.sessions/partials/student.sessions.sortSessionsDialog.tpl.html',
+			controller: 'sortSessionsDialogController'
+		}).then(function(answer){
+			if($scope.vm.predicate !== answer.predicateOption || $scope.vm.reverse !== answer.reverseOption || $scope.vm.showPast !== answer)
+			{	
+				$scope.reloadSessions();
+
+				$scope.vm.predicate = answer.predicateOption;
+				$scope.vm.reverse = answer.reverseOption;
+				$scope.vm.showPast = answer.showPastOption;
+			}
+		},function(){
+			console.log('dialog CLOSED');
+		})
+	}
+
+	$scope.reloadSessions = function()
+	{
+		var temp = $scope.vm.sessions;
+		$scope.vm.sessions = null;
+
+		$('.mdi-replay').show();
+
+		$timeout(function(){
+			$('.mdi-replay').hide();
+
+			$scope.vm.sessions = temp;
+
+			$scope.vm.sessions.forEach(function(element,index,array){
+				element.isActive = moment().isAfter(element.startDate) && moment().isBefore(element.endDate);
+			});
+		},2000);
 	}
 
 	$scope.myFilter = function(item)

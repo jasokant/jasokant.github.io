@@ -17,12 +17,7 @@
                         "title": "Video Feed",
                         
                         "type": "cameraFeed",
-                        "url" : "rest/device/camera",
-                        
-                        "cameraFeedOptions": 
-                        {
-                            
-                        }
+                        "url" : "rest/device/camera"
                     }
                 }
             ]
@@ -42,11 +37,8 @@
 
                             "type": "joystickInput",
                             "url": "rest/device/mico",
-                            
-                            "angleInputOptions":
-                            {
-                                "numberOfItems": 6
-                            }
+
+                            "axesEnabled":[true,false,false,true]
                         }
                     },
                     {
@@ -55,11 +47,8 @@
                             "title": "Current Pose",
 
                             "type": "poseState",
-                            "url": "rest/device/mico",
-                            "poseStateOptions":
-                            {
-
-                            }
+                            "url": "rest/device/mico"
+                            
                         }
                     }
 
@@ -79,11 +68,7 @@
                         {
                             "title": "Trajectory Save",
                             "type": "trajectoryComponent",
-                            "url": "rest/device/mico",
-                            "angleInputOptions":
-                            {
-
-                            }
+                            "url": "rest/device/mico"
                         }
                     }
                 ]

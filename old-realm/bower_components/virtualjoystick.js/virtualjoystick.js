@@ -7,22 +7,22 @@ var VirtualJoystick	= function(opts)
 	this._baseEl		= opts.baseElement	|| this._buildJoystickBase();
 	this._mouseSupport	= opts.mouseSupport !== undefined ? opts.mouseSupport : false;
 	this._stationaryBase	= opts.stationaryBase || false;
-	this._baseX		= this._stickX = opts.baseX || 0
-	this._baseY		= this._stickY = opts.baseY || 0
-	this._limitStickTravel	= opts.limitStickTravel || false
-	this._stickRadius	= opts.stickRadius !== undefined ? opts.stickRadius : 100
-	this._useCssTransform	= opts.useCssTransform !== undefined ? opts.useCssTransform : false
-	this._allowX = opts.allowX !== undefined ? opts.allowX : true
-	this._allowY = opts.allowY !== undefined ? opts.allowY :  true
+	this._baseX		= this._stickX = opts.baseX || 0;
+	this._baseY		= this._stickY = opts.baseY || 0;
+	this._limitStickTravel	= opts.limitStickTravel || false;
+	this._stickRadius	= opts.stickRadius !== undefined ? opts.stickRadius : 100;
+	this._useCssTransform	= opts.useCssTransform !== undefined ? opts.useCssTransform : false;
+	this._allowX = opts.allowX !== undefined ? opts.allowX : true;
+	this._allowY = opts.allowY !== undefined ? opts.allowY :  true;
 
-	this._container.style.position	= "relative"
+	this._container.style.position	= "relative";
 
-	this._container.appendChild(this._baseEl)
-	this._baseEl.style.position	= "absolute"
-	this._baseEl.style.display	= "none"
-	this._container.appendChild(this._stickEl)
-	this._stickEl.style.position	= "absolute"
-	this._stickEl.style.display	= "none"
+	this._container.appendChild(this._baseEl);
+	this._baseEl.style.position	= "absolute";
+	this._baseEl.style.display	= "none";
+	this._container.appendChild(this._stickEl);
+	this._stickEl.style.position	= "absolute";
+	this._stickEl.style.display	= "none";
 
 	this._pressed	= false;
 	this._touchIdx	= null;
@@ -107,7 +107,10 @@ VirtualJoystick.touchScreenAvailable	= function()
 //										//
 //////////////////////////////////////////////////////////////////////////////////
 
-VirtualJoystick.prototype.deltaX	= function(){ return this._stickX - this._baseX - $(this._container).offset().left;}
+VirtualJoystick.prototype.deltaX	= function(){ 
+	this._leftOffset = $(this._container).offset().left;
+	return this._stickX - this._baseX - this._leftOffset;
+}
 VirtualJoystick.prototype.deltaY	= function(){ return this._stickY - this._baseY - $(this._container).offset().top;}
 
 VirtualJoystick.prototype.getX = function(){
@@ -191,6 +194,9 @@ VirtualJoystick.prototype._onUp	= function()
 {
 	this._pressed	= false; 
 	this._stickEl.style.display	= "none";
+
+	this._stickX = this._baseX;
+	this._stickY = this._baseY;
 	
 	if(this._stationaryBase == false){	
 		this._baseEl.style.display	= "none";

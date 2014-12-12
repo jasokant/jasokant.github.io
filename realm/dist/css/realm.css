@@ -39,6 +39,29 @@
     transition: all 300ms cubic-bezier(0.770, 0.150, 0.250, 0.855);           
 }
 
+@-moz-keyframes spin { 
+    0% { -moz-transform-origin: 50px 50px 50px; -moz-transform:rotateZ(0deg); opacity:0.1;}
+    50% { opacity:1;} 
+    100% { -moz-transform-origin: 50px 50px 50px; -moz-transform: rotateZ(-360deg); opacity:0.1;} 
+}
+@-webkit-keyframes spin { 
+    0% { -webkit-transform-origin: 50px 50px 50px; -webkit-transform:rotateZ(0deg); opacity:0.1;}
+    50% { opacity:1;} 
+    100% { -webkit-transform-origin: 50px 50px 50px; -webkit-transform: rotateZ(-360deg); opacity:0.1;} 
+}
+@keyframes spin { 
+    0% { transform-origin: 50px 50px 50px; transform:rotateZ(0deg); opacity:0.1;}
+    50% { opacity:1;} 
+    100% { transform-origin: 50px 50px 50px; transform: rotateZ(-360deg); opacity:0.1;} 
+}
+
+.mdi-replay
+{
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+
 md-toolbar.banner {
     background-color:#B0BEC5;
 }
@@ -70,11 +93,19 @@ md-toolbar.banner {
     
 }
 
+.realm-app.ng-enter
+{
+    -webkit-animation: fadeIn 1s;
+    -moz-animation: fadeIn 1s;
+    -ms-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
 
 .md-card
 {
     min-height:440px;
 }
+
 
 
 /*------------------------------------*\
@@ -153,6 +184,15 @@ md-toolbar.banner {
 {
     background: #ffffff;
 }
+
+.realm-app__content--index__content__container__ui-view.ng-enter
+{
+    -webkit-animation: fadeIn 0.8s;
+    -moz-animation: fadeIn 0.8s;
+    -ms-animation: fadeIn 0.8s;
+    animation: fadeIn 0.8s;
+}
+
 
 /*------------------------------------*\
     #SM
@@ -435,7 +475,7 @@ md-item-content
 
 .realm-app__sidenav--student:hover
 {
-    width:212px;
+    width:212px !important;
 }
 
 .realm-app__sidenav--student:hover .realm-app__sidenav--student__toolbar__email-container
@@ -468,6 +508,20 @@ md-item-content
     line-height:12px; 
 }
 
+/*------------------------------------*\
+    #XS
+\*------------------------------------*/
+@media (max-width: 600px)
+{
+    /*md-sidenav.realm-app__sidenav{
+        width:0px;
+    }*/
+
+    md-content.realm-app__content{
+        left:64px !important;
+        width:calc(100% - 64px) !important;
+    }    
+}
 
 
 /*------------------------------------*\
@@ -538,6 +592,24 @@ md-item-content
     height:64px;
 }
 
+.menu-button {
+    position:absolute;
+    left:0px;
+    top:0px;
+    margin:0;
+    width:64px;
+    height:64px;
+    padding-top:0px;
+
+    z-index:10000000000;
+}
+
+.menu-button i
+{
+    color:white;
+    font-size:40px;
+}
+
 .studentSessions-toolbar__title {
     transition:all 0.2s ease;
 
@@ -546,8 +618,8 @@ md-item-content
 
     position:absolute;
     margin:0;
-    left:16px;
-    top:12px;
+    left:72px !important;
+    top:12px !important;
 }
 
 .studentSessions-toolbar__title--2
@@ -587,6 +659,11 @@ md-item-content
     margin-left:16px;
 
     box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.student-session-card:last-child 
+{
+    margin-bottom:104px;
 }
 
 .student-session-card__toolbar
@@ -667,43 +744,48 @@ md-item-content
     margin-top:80px;
 }
 
-
 .student-session-card.ng-enter {
-    -webkit-animation: fadeInDownBig 1s;
-    -moz-animation: fadeInDownBig 1s;
-    -ms-animation: fadeInDownBig 1s;
-    animation: fadeInDownBig 1s;
+    -webkit-animation: zoomIn 0.8s;
+    -moz-animation: zoomIn 0.8s;
+    -ms-animation: zoomIn 0.8s;
+    animation: zoomIn 0.8s;
 }
   
-.student-session-card.ng-enter.ng-leave {
-    -webkit-animation: fadeOutDown 1s;
-    -moz-animation: fadeOutDown 1s;
-    -ms-animation: fadeOutDown 1s;
-    animation: fadeOutDown 1s;
+.student-session-card.ng-leave {
+    -webkit-animation: zoomOut 1s;
+    -moz-animation: zoomOut 1s;
+    -ms-animation: zoomOut 1s;
+    animation: zoomOut 1s;
 }
 
 
 
+.student-session-card md-text-float, .student-session-card input {
+    width:100%;
+}
 
-/*.studentSessions__scrollview section:last-of-type
-{
-    margin-bottom:16px;
-}*/
+.student-session-card md-input-group {
+
+}
+
 
 .sort-sessions-button
 {
-    height:64px;
-    width:64px;
+    position:fixed;
+    top:44px;
+    right:104px;
 
     z-index:111 !important;
+    background-color:green !important;
 
-    position:absolute;
-    right:0px;
+    width:56px;
+    height:56px;
+    border-radius:50% !important;
 }
 
 .sort-sessions-button i
 {
-    font-size: 32px;
+    font-size:24px;
 }
 
 .join-session-button
@@ -732,6 +814,12 @@ md-item-content
     {
         top:108px;
         right:24px;
+    }
+
+    .sort-sessions-button
+    {
+        top:108px;
+        right:104px;
     }
 
     .studentSessions__scrollview {
@@ -770,6 +858,12 @@ md-item-content
     {
         top:163px;
         right:24px;
+    }
+
+    .sort-sessions-button
+    {
+        top:163px;
+        left:88px;
     }
 
     .studentSessions-toolbar {
@@ -822,6 +916,12 @@ md-item-content
         right:24px;
     }
 
+    .sort-sessions-button
+    {
+        top:163px;
+        left:88px;
+    }
+
     .studentSessions-toolbar {
         height:192px;
     }
@@ -840,7 +940,7 @@ md-item-content
         -webkit-flex:0 0 calc(100% - 88px);
         max-width: calc(100% - 104px);
 
-        margin-left:72px;
+        margin-left:104px;
         max-height: calc(100vh - 104px - 104px);
     }
 

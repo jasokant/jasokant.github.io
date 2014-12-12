@@ -26,7 +26,7 @@ app.directive('cameraFeedComponent' , function($timeout, $http, $q, CameraFeedSe
                 var imgData;
                 var img = new Image();
                 
-                var renderVideo = function(){
+                /*var renderVideo = function(){
                     var promise = CameraFeedService.getCurrentFrame(cameraPath);
                     promise.then(function(message){
                         imgData = message;
@@ -46,7 +46,7 @@ app.directive('cameraFeedComponent' , function($timeout, $http, $q, CameraFeedSe
                         setTimeout(renderVideo,30);  
                     });
                 }
-                renderVideo();
+                renderVideo();*/
             },
             compile: function CompilingFunction(tElement, tAttrs)
             {

@@ -38,7 +38,7 @@ angular.module('REALM').directive('uiExperiment',['$timeout', '$http', '$q','Rob
         //this should get updated dynamically
         var robotPath = "rest/device/mico";
         $scope.robotMode="IDLE";
-        var getRobotState = function(){
+        /*var getRobotState = function(){
             RobotService.getMode(robotPath).then(function(mode){
                 $scope.robotMode=mode;
                // console.log(mode)
@@ -48,7 +48,7 @@ angular.module('REALM').directive('uiExperiment',['$timeout', '$http', '$q','Rob
                 setTimeout(getRobotState,30);
             });
         };
-        getRobotState();
+        getRobotState();*/
 
         $scope.$watch('robotMode',function()
         {
