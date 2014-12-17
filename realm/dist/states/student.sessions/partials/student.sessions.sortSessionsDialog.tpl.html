@@ -1,0 +1,34 @@
+<md-dialog aria-label="Sort Sessions Options">
+  <md-toolbar>
+    <h3 class="dialog__title">Sort Sessions Options</h3>
+  </md-toolbar>
+  <md-content>
+    <form style="padding: 20px;">
+      <div class="row">
+      	<h1>Sort By:</h1>
+        <md-radio-group ng-model="vm.predicateOption">
+	      <md-radio-button value="startDate" aria-label="Label 1">Start</md-radio-button>
+	      <md-radio-button value="endDate">End</md-radio-button>
+	    </md-radio-group>
+	    <h1>Reverse Order?</h1>
+        <md-radio-group ng-model="vm.reverseOption">
+	      <md-radio-button value="true" aria-label="Label 1">Yes</md-radio-button>
+	      <md-radio-button value="false">No</md-radio-button>
+	    </md-radio-group>
+	    <h1>Show Past Sessions?</h1>
+        <md-radio-group ng-model="vm.showPastOption">
+	      <md-radio-button value="true" aria-label="Label 1">Yes</md-radio-button>
+	      <md-radio-button value="false">No</md-radio-button>
+	    </md-radio-group>
+      </div>
+    </form>
+  </md-content>
+  <div class="md-actions" layout="horizontal" layout-align="end">
+    <md-button ng-click="cancel()">
+      Cancel
+    </md-button>
+    <md-button class="md-primary" ng-click="answer(vm.sessionToken)">
+      Okay
+    </md-button>
+  </div>
+</md-dialog>

@@ -65,7 +65,7 @@ var webglAvailable  = ( function () { try { var canvas = document.createElement(
   window.controller = controller = new Leap.Controller;
 
   controller.use('handHold').use('transform', {
-    position: new THREE.Vector3(1, 0, 0)
+    position: new THREE.Vector3(0, -150, 0)
   }).use('handEntry').use('screenPosition').use('riggedHand', {
     parent: scene,
     renderer: renderer,
@@ -98,7 +98,7 @@ var webglAvailable  = ( function () { try { var canvas = document.createElement(
     },
     checkWebGL: true
   }).connect();
-
+    
   if (getParam('screenPosition')) {
     cursor = document.createElement('div');
     cursor.style.width = '50px';
@@ -124,13 +124,33 @@ var webglAvailable  = ( function () { try { var canvas = document.createElement(
   }
 
   if (getParam('scenePosition')) {
-    window.sphere = new THREE.Mesh(new THREE.SphereGeometry(1), new THREE.MeshBasicMaterial(0x0000ff));
+    window.sphere = new THREE.Mesh(new THREE.SphereGeometry(20), new THREE.MeshBasicMaterial(0xff0000));
+    window.line = null; 
+      
     scene.add(sphere);
     controller.on('frame', function(frame) {
       var hand, handMesh;
       if (hand = frame.hands[0]) {
         handMesh = frame.hands[0].data('riggedHand.mesh');
+        
+        var geometry = new THREE.Geometry(); 
+        geometry.vertices.push(new THREE.Vector3(0,0,0));
+        geometry.vertices.push(new THREE.Vector3(hand.indexFinger.tipPosition[0], hand.indexFinger.tipPosition[1], hand.indexFinger.tipPosition[2]));
+         
+        var material = new THREE.LineBasicMaterial({color:0x0000ff});
+         if(window.line !== null)
+             scene.remove(window.line)
+        window.line = new THREE.Line(geometry,material);
+          
+        scene.add(line);
         return handMesh.scenePosition(hand.indexFinger.tipPosition, sphere.position);
+      } else {
+          sphere.position.x = 0;
+          sphere.position.y = 0;
+          sphere.position.z = 0;
+          
+          scene.remove(window.line);
+          window.line = null;
       }
     });
   }

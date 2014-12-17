@@ -7,4 +7,5 @@ realm.controller('MainController', function($rootScope, $scope, AuthService, $md
   	$mdSidenav('left').open();
   }
 
+  $scope.state = $rootScope.state;
 });

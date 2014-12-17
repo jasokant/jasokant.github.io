@@ -1,0 +1,8 @@
+<form name="loginForm" class="login-form" >
+  	<div class="row">
+    	<md-text-float label="Email" ng-model="vm.credentials.email" type="email" required></md-text-float>
+       	<md-text-float label="Password" ng-model="vm.credentials.password" type="password" required></md-text-float>
+        	
+       	<md-button ng-click="login()" ng-disabled="loginForm.$invalid" class="login-button md-raised md-primary">Login</md-button>
+    </div>
+</form>

@@ -1,0 +1,74 @@
+/*
+ *STATE: index(abstract)
+*/
+/*------------------------------------*\
+    #DEFAULT
+\*------------------------------------*/
+.realm-app__content--index__toolbar {
+  height: 128px; }
+
+.realm-app__content--index__toolbar__banner-container {
+  height: 80px;
+  width: 255px;
+  margin-left: 32px;
+  margin-top: 32px;
+  background-image: url('../../images/realmBanner.png'); }
+
+.realm-app__content--index__content {
+  padding: 16px;
+  background-color: #37474F !important;
+  background-image: url(http://www.transparenttextures.com/patterns/project-paper.png); }
+
+.realm-app__content--index__container {
+  height: 100%; }
+
+.realm-app__content--index__content__container {
+  width: 368px;
+  height: 440px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.realm-app__content--index__content__container__ui-view {
+  background: #ffffff; }
+
+.realm-app__content--index__content__container__ui-view.ng-enter {
+  -webkit-animation: fadeIn 0.8s;
+  -moz-animation: fadeIn 0.8s;
+  -ms-animation: fadeIn 0.8s;
+  animation: fadeIn 0.8s; }
+
+/*------------------------------------*\
+    #SM
+\*------------------------------------*/
+/*------------------------------------*\
+    #MD
+\*------------------------------------*/
+/*------------------------------------*\
+    #LG
+\*------------------------------------*/
+
+/*
+ *STATE: index.login
+*/
+/*------------------------------------*\
+    #DEFAULT
+\*------------------------------------*/
+.login-form {
+  width: 200px;
+  margin-top: 88px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.login-button {
+  width: 100%;
+  margin-top: 40px !important; }
+
+/*------------------------------------*\
+    #SM
+\*------------------------------------*/
+/*------------------------------------*\
+    #MD
+\*------------------------------------*/
+/*------------------------------------*\
+    #LG
+\*------------------------------------*/

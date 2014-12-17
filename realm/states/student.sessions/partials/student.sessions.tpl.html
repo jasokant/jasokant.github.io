@@ -21,15 +21,15 @@
 			<i class="mdi mdi-add"></i>
 		</md-button>
 
-		<md-button class="menu-button" ng-click="menuButtonClicked()">
+		<button class="menu-button" ng-click="menuButtonClicked()">
 			<i class="mdi mdi-menu">
 			</i>
-		</md-button>
+		</button>
 
 		<i class="mdi mdi-replay" style="position:absolute; width:50px; font-size:100px; left:calc(50vw - 50px); top:calc(50vh - 50px); color:#4a148c"></i>
 
-		<md-content class="scroll" style="width:100%; height:100%; background:transparent" layout="vertical">
-			<section ng-repeat="session in vm.sessions | filter:myFilter | orderBy:vm.predicate:vm.reverse" class="student-session-card md-card cbt" layout="vertical">
+		<md-content class="scroll" style="width:100%; height:100%; background:transparent" layout="horizontal" layout-padding>
+			<section ng-repeat="session in vm.sessions | filter:myFilter | orderBy:vm.predicate:vm.reverse" class="student-session-card md-card cbt" layout="vertical" flex-lg="50">
 				<md-toolbar class="student-session-card__toolbar">
 					<h2 class="student-session-card__toolbar__title">{{session.assignment.name}}</h2>
 					<md-button class="student-session-card__toolbar__calendar-button" ng-disabled="false" ng-click="addSessionToGCal(session)">

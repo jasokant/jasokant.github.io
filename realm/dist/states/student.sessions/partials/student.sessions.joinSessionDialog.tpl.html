@@ -1,0 +1,20 @@
+<md-dialog aria-label="Enter Session Token">
+  <md-toolbar>
+    <h3 class="dialog__title">Enter Session Token</h3>
+  </md-toolbar>
+  <md-content>
+    <form style="padding: 20px;">
+      <div class="row">
+        <md-text-float label="Session Token" ng-model="vm.sessionToken"></md-text-float>
+      </div>
+    </form>
+  </md-content>
+  <div class="md-actions" layout="horizontal" layout-align="end">
+    <md-button ng-click="cancel()">
+      Cancel
+    </md-button>
+    <md-button class="md-primary" ng-click="answer(vm.sessionToken)">
+      Okay
+    </md-button>
+  </div>
+</md-dialog>

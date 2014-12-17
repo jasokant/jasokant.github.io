@@ -1,0 +1,27 @@
+<md-sidenav class="realm-app__sidebar md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="false"> 
+</md-sidenav>
+
+<div class="realm-app__content" layout="vertical" flex>
+	<md-toolbar class="realm-app__content--index__toolbar md-whiteframe-z1">
+	    <div class="realm-app__content--index__toolbar__banner-container">
+	    </div>
+	</md-toolbar>
+
+	<md-content class="realm-app__content--index__content" layout="vertical" flex>
+		<section class="realm-app__content--index__content__container md-whiteframe-z1" layout="vertical">
+			<md-tabs class="realm-app__content--index__content__container__tabs" selected="vm.selectedIndex">
+				<md-tab "realm-app__content--index__content__container__tabs__tab--1" id="tab1" aria-controls="tab1-content" ui-sref="index.login">
+					Login
+				</md-tab>
+				<md-tab class="realm-app__content--index__content__container__tabs__tab--2" id="tab2" aria-controls="tab2-content" ui-sref="index.signup">
+					Sign Up
+				</md-tab>
+			</md-tabs>
+
+			<div ui-view class="realm-app__content--index__content__container__ui-view" flex>
+
+			</div>
+		</section>
+	</md-content>	
+</div>
+

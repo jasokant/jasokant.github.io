@@ -106,8 +106,27 @@ angular.module('realm')
 			      //SUCCESS
 			      GAuthService.createEvent(calendarId, true, session.assignment.name, session.startDate.format(), session.endDate.format()).then(function(){
 			        //SUCCESS
+			        $mdDialog.show({
+						templateUrl: 'states/student.sessions/partials/student.sessions.addSessionToGCalSuccess.tpl.html',
+						controller: 'addSessionToGCalSuccessDialogController'
+					})
+						.then(function(){
+							console.log('dialog OK');
+						},function(){
+							console.log('dialog CLOSED');
+						});
+
 			      },function(){
 			        //FAILURE
+			        $mdDialog.show({
+						templateUrl: 'states/student.sessions/partials/student.sessions.addSessionToGCalFailure.tpl.html',
+						controller: 'addSessionToGCalFailureDialogController'
+					})
+						.then(function(){
+							console.log('dialog OK');
+						},function(){
+							console.log('dialog CLOSED');
+						});
 			      });
 			    },function(){
 			      //FAILURE
@@ -121,7 +140,7 @@ angular.module('realm')
 
 	$scope.menuButtonClicked = function()
 	{
-		$mdSidenav.toggle();
+		$mdSidenav('left').toggle();
 	}
 
 	$scope.launchExperiment = function(assignmentLocation) {

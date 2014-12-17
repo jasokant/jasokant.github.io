@@ -1,0 +1,57 @@
+/*
+ *STATE: index(abstract)
+*/
+/*------------------------------------*\
+    #DEFAULT
+\*------------------------------------*/
+/* line 11, /home/joshua/Repos/jasokant.github.io/realm/states/index/styles/index.scss */
+.realm-app__content--index__toolbar {
+  height: 128px; }
+
+/* line 15, /home/joshua/Repos/jasokant.github.io/realm/states/index/styles/index.scss */
+.realm-app__content--index__toolbar__banner-container {
+  height: 80px;
+  width: 255px;
+  margin-left: 32px;
+  margin-top: 32px;
+  background-image: url('../../images/realmBanner.png'); }
+
+/* line 25, /home/joshua/Repos/jasokant.github.io/realm/states/index/styles/index.scss */
+.realm-app__content--index__content {
+  padding: 16px;
+  background-color: #37474F !important;
+  background-image: url(http://www.transparenttextures.com/patterns/project-paper.png); }
+
+/* line 32, /home/joshua/Repos/jasokant.github.io/realm/states/index/styles/index.scss */
+.realm-app__content--index__container {
+  height: 100%; }
+
+/* line 36, /home/joshua/Repos/jasokant.github.io/realm/states/index/styles/index.scss */
+.realm-app__content--index__content__container {
+  width: 368px;
+  height: 440px;
+  margin-left: auto;
+  margin-right: auto; }
+
+/* line 46, /home/joshua/Repos/jasokant.github.io/realm/states/index/styles/index.scss */
+.realm-app__content--index__content__container__ui-view {
+  background: #ffffff; }
+
+/* line 51, /home/joshua/Repos/jasokant.github.io/realm/states/index/styles/index.scss */
+.realm-app__content--index__content__container__ui-view.ng-enter {
+  -webkit-animation: fadeIn 0.8s;
+  -moz-animation: fadeIn 0.8s;
+  -ms-animation: fadeIn 0.8s;
+  animation: fadeIn 0.8s; }
+
+/*------------------------------------*\
+    #SM
+\*------------------------------------*/
+/*------------------------------------*\
+    #MD
+\*------------------------------------*/
+/*------------------------------------*\
+    #LG
+\*------------------------------------*/
+
+/*# sourceMappingURL=index.css.map */

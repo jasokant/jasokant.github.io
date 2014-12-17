@@ -106,6 +106,12 @@ md-toolbar.banner {
     min-height:440px;
 }
 
+.menu-button 
+{
+    background-color: rgba(0,0,0,0);
+    border:none;
+}
+
 
 
 /*------------------------------------*\
@@ -156,7 +162,7 @@ md-toolbar.banner {
     margin-left:32px;
     margin-top:32px;
 
-    background-image:url('../../mockups/realmBanner.png');
+    background-image:url('../../images/realmBanner.png');
 }
 
 .realm-app__content--index__content {
@@ -172,9 +178,8 @@ md-toolbar.banner {
 
 .realm-app__content--index__content__container
 {
-    width:368px;
-
-    height:440px;
+    width:calc(100vw - 32px);
+    height:calc(100vh - 128px - 32px);
 
     margin-left:auto;
     margin-right:auto;
@@ -183,6 +188,8 @@ md-toolbar.banner {
 .realm-app__content--index__content__container__ui-view
 {
     background: #ffffff;
+
+    overflow-y:auto;
 }
 
 .realm-app__content--index__content__container__ui-view.ng-enter
@@ -199,7 +206,10 @@ md-toolbar.banner {
 \*------------------------------------*/
 @media (min-width: 600px) and (max-width: 959px)
 {
+    .realm-app__content--index__content__container
+    {
 
+    }
 }
 
 /*------------------------------------*\
@@ -207,7 +217,10 @@ md-toolbar.banner {
 \*------------------------------------*/
 @media (min-width: 960px) and (max-width: 1199px)
 {
-
+    .realm-app__content--index__content__container
+    {
+        width:calc((100vw - 32px) / 2);
+    }
 }
 
 /*------------------------------------*\
@@ -215,7 +228,10 @@ md-toolbar.banner {
 \*------------------------------------*/
 @media (min-width: 1200px)
 {
-
+    .realm-app__content--index__content__container
+    {
+        width:calc((100vw - 32px) / 2);
+    }
 }
 
 
@@ -227,16 +243,19 @@ md-toolbar.banner {
     #DEFAULT
 \*------------------------------------*/
 .login-form {
-    width:200px;
+    width:100%;
+    padding-top:16px;
+    padding-left:40px;
+    padding-right:40px;
 
-    margin-top:88px;
-    margin-left:auto;
-    margin-right:auto;
+}
+md-input-group input {
+    width:100% !important;
 }
 
 .login-button {
     width: 100%;
-    margin-top:40px !important;
+    margin-top:40px;
 }
 
 /*------------------------------------*\
@@ -272,16 +291,16 @@ md-toolbar.banner {
     #DEFAULT
 \*------------------------------------*/
 .signup-form {
-    width:200px;
-
-    margin-top:24px;
-    margin-left:auto;
-    margin-right:auto;
+    width:100%;
+    padding-top:16px;
+    padding-left:40px;
+    padding-right:40px;
 }
 
 .signup-button {
     width: 100%;
     margin-top:32px;
+    margin-bottom:64px;
 }
 
 /*------------------------------------*\
@@ -319,9 +338,9 @@ md-toolbar.banner {
 md-sidenav.realm-app__sidenav--student + .realm-app__content
 {   
 
-    position:absolute;
+    /*position:absolute;
     left:64px;
-    width:calc(100vw - 64px);
+    width:calc(100vw - 64px);*/
 
     /*position:absolute;
     left:64px;
@@ -335,18 +354,18 @@ md-sidenav.realm-app__sidenav--student + .realm-app__content
 .realm-app__sidenav--student
 {
     background-color: #673ab7 !important;
+    display:block;
     z-index: 100;
 
-    position:fixed !important;
-    display:block;
-    width:64px;
+    /*position:fixed !important;
+    width:64px;*/
 
     overflow: hidden;
 }
 
 .realm-app__sidenav--student__toolbar
 {
-    height:64px !important;
+    height:192px !important;
 }
 
 .realm-app__sidenav--student__content
@@ -368,7 +387,7 @@ md-sidenav.realm-app__sidenav--student + .realm-app__content
 .realm-app__sidenav--student__toolbar__avatar
 {
 
-    opacity: 0;
+    opacity: 1;
 
     position:absolute;
     
@@ -383,7 +402,7 @@ md-sidenav.realm-app__sidenav--student + .realm-app__content
 
 .realm-app__sidenav--student__toolbar__email-container
 {
-    opacity: 0;
+    opacity: 1;
     position:absolute;
     bottom:0;
     width:100%;
@@ -473,17 +492,10 @@ md-item-content
 }
 
 
-.realm-app__sidenav--student:hover
+.realm-app__sidenav--student
 {
     width:212px !important;
 }
-
-.realm-app__sidenav--student:hover .realm-app__sidenav--student__toolbar__email-container
-{
-    opacity: 1;
-}
-
-
 
 
 .realm-app__sidenav--student:hover .notifications-badge
@@ -509,30 +521,11 @@ md-item-content
 }
 
 /*------------------------------------*\
-    #XS
-\*------------------------------------*/
-@media (max-width: 600px)
-{
-    /*md-sidenav.realm-app__sidenav{
-        width:0px;
-    }*/
-
-    md-content.realm-app__content{
-        left:64px !important;
-        width:calc(100% - 64px) !important;
-    }    
-}
-
-
-/*------------------------------------*\
     #SM
 \*------------------------------------*/
 @media (min-width: 600px) and (max-width: 959px)
 {
-    .realm-app__sidenav--student__toolbar
-    {
-        height:128px !important;
-    }
+   
 }
 
 /*------------------------------------*\
@@ -540,15 +533,9 @@ md-item-content
 \*------------------------------------*/
 @media (min-width: 960px) and (max-width: 1199px)
 {
-    .realm-app__sidenav--student__toolbar
-    {
-        height:192px !important;
-    }
+   
 
-    .realm-app__sidenav--student:hover .realm-app__sidenav--student__toolbar__avatar
-    {
-        opacity: 1
-    }
+    
 
 }
 
@@ -557,14 +544,8 @@ md-item-content
 \*------------------------------------*/
 @media (min-width: 1200px)
 {
-    .realm-app__sidenav--student__toolbar
-    {
-        height:192px !important;
-    }
-    .realm-app__sidenav--student:hover .realm-app__sidenav--student__toolbar__avatar
-    {
-        opacity: 1
-    }
+    
+    
 }
 
 /*
@@ -625,7 +606,7 @@ md-item-content
 .studentSessions-toolbar__title--2
 {
     left: 158px !important;
-}
+}padding
 
 .studentSessions-toolbar__banner-container {
     height:80px;
@@ -634,36 +615,26 @@ md-item-content
     margin-left:32px;
     margin-top:64px;
 
-    background-image:url('../../mockups/realmBanner.png');
+    background-image:url('../../images/realmBanner.png');
 }
 
 
 
 
+md-content.scroll {
+    display: flex !important;
+    flex-wrap:wrap;
 
+    padding-top:72px;
+    padding-left:8px;
+    padding-right:8px;
+}
 
 .student-session-card
 {
-    /*width:368px;
-    height:440px;*/
-
-    display:flex;
-    -webkit-flex:0 0 calc(100% - 16px);
-    max-width: calc(100% - 16px);
-
-    max-height: calc(100vh - 64px - 16px - 16px);
-    
-    background:white;
-    
-    margin-top:32px;
-    margin-left:16px;
-
+    flex:0 0 calc(100% - 16px);
+    margin:8px;
     box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
-}
-
-.student-session-card:last-child 
-{
-    margin-bottom:104px;
 }
 
 .student-session-card__toolbar
@@ -739,10 +710,6 @@ md-item-content
     /*background-color:green;*/
 }
 
-.student-session-card:first-of-type 
-{
-    margin-top:80px;
-}
 
 .student-session-card.ng-enter {
     -webkit-animation: zoomIn 0.8s;
@@ -812,13 +779,13 @@ md-item-content
 {
     .join-session-button 
     {
-        top:108px;
+        top:48px;
         right:24px;
     }
 
     .sort-sessions-button
     {
-        top:108px;
+        top:48px;
         right:104px;
     }
 
@@ -827,7 +794,7 @@ md-item-content
     }
 
     .studentSessions-toolbar {
-        height:128px;
+        height:64px;
     }
 
     .studentSessions-toolbar__title {
@@ -836,11 +803,7 @@ md-item-content
     }
 
     .student-session-card {
-        max-height: calc(100vh - 128px - 16px - 16px);
-    }
-
-    .student-session-card:first-of-type {
-        margin-top: calc(128px + 16px);
+        flex: 0 0 calc(100% - 16px);
     }
 
     .student-session-card__toolbar__title
@@ -857,13 +820,13 @@ md-item-content
     .join-session-button 
     {
         top:163px;
-        right:24px;
+        right:32px;
     }
 
     .sort-sessions-button
     {
         top:163px;
-        left:88px;
+        left:24px;
     }
 
     .studentSessions-toolbar {
@@ -879,23 +842,24 @@ md-item-content
         left:24px;
         top:16px;
     }
-
+    
+    md-content.scroll {
+        padding-top:0px;
+        padding-left:104px;
+        padding-right:120px;
+    }
     .student-session-card {
-        -webkit-flex:0 0 calc(100% - 104px);
-        max-width: calc(100% - 104px);
-
-        margin-left:104px;
-        max-height: calc(100vh - 104px - 104px);
+        flex:0 0 100%;
     }
 
     .student-session-card:first-of-type {
         margin-top: 104px;
     }
 
-    /*.studentSessions__scrollview section:last-of-type
+    .studentSessions__scrollview section:last-of-type
     {
         margin-bottom:104px;
-    }*/
+    }
 
     .student-session-card__toolbar__title
     {
@@ -913,13 +877,13 @@ md-item-content
     .join-session-button 
     {
         top:163px;
-        right:24px;
+        right:32px;
     }
 
     .sort-sessions-button
     {
         top:163px;
-        left:88px;
+        left:24px;
     }
 
     .studentSessions-toolbar {
@@ -936,16 +900,18 @@ md-item-content
         top:16px;
     }
 
+    md-content.scroll {
+        padding-top: 96px;
+        padding-left:104px;
+        padding-right:104px;
+        padding-bottom:104px;
+    }
     .student-session-card {
-        -webkit-flex:0 0 calc(100% - 88px);
-        max-width: calc(100% - 104px);
-
-        margin-left:104px;
-        max-height: calc(100vh - 104px - 104px);
+        
+        flex:0 0 calc(50% - 16px);
     }
 
-    .student-session-card:first-of-type {
-        margin-top: 104px;
+    .student-session-card:first-child {
     }
 
     /*.studentSessions__scrollview section:last-of-type
