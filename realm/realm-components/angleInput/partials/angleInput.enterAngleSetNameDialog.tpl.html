@@ -1,0 +1,20 @@
+<md-dialog aria-label="New Angleset Name">
+  <md-toolbar>
+    <h3 class="dialog__title">New Angleset Name</h3>
+  </md-toolbar>
+  <md-content>
+    <form style="padding: 20px;">
+      <div class="row">
+        <md-text-float label="Name" ng-model="vm.newAngleSetName"></md-text-float>
+      </div>
+    </form>
+  </md-content>
+  <div class="md-actions" layout="horizontal" layout-align="end">
+    <md-button ng-click="cancel()">
+      Cancel
+    </md-button>
+    <md-button class="md-primary" ng-click="answer(vm.newAngleSetName)">
+      Okay
+    </md-button>
+  </div>
+</md-dialog>

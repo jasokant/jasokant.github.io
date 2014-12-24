@@ -5,5 +5,9 @@ angular.module('realm').controller('ExperimentController', ['$scope', '$rootScop
 		$scope.assignmentLocation = $stateParams.assignmentLocation;
 
 		//get layout.json file from assignment
-    }
+		
+		//Entry delay for animations
+		$timeout(function(){
+			$('.mdi-autorenew').hide();
+		},2000);
 ]);

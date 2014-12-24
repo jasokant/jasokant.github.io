@@ -1,0 +1,18 @@
+<md-dialog aria-label="Added Session to GCal">
+  <md-toolbar>
+    <h3 class="dialog__title">Success!</h3>
+  </md-toolbar>
+  <md-content>
+    <p>
+        Created Session Event Reminder in your REALM Sessions Calendar
+    </p>
+  </md-content>
+  <div class="md-actions" layout="horizontal" layout-align="end">
+    <md-button ng-click="cancel()">
+      Cancel
+    </md-button>
+    <md-button class="md-primary" ng-click="answer(vm.sessionToken)">
+      Okay
+    </md-button>
+  </div>
+</md-dialog>

@@ -1,1 +1,149 @@
-<h1>{{assignmentLocation}}</h1>
+<!--SIDENAV-->
+<md-sidenav tabindex="-1" class="realm-app__sidenav experiment-sidenav md-toolbar md-sidenav-left md-whiteframe-z2 cbt ng-scope ng-isolate-scope" component-id="left" is-locked-open="false">
+    
+    <!--SIDEBAR PROFILE-->      
+    <md-content class="realm-app__sidenav__toolbar md-tall md-deep-purple-theme cbt md-default-theme">
+        <!--AVATAR-->
+        <div class="realm-app__sidenav__toolbar__avatar-container ">
+            <i class="realm-app__sidenav__toolbar__avatar mdi mdi-account-circle cbt"></i>
+        </div>
+        <!--EMAIL-->
+        <span class="realm-app__sidenav__toolbar__email">jasokant@gmail.com</span>
+    </md-content>
+    
+    <!--SIDEBAR LINKS-->
+    <md-content class="realm-app__sidenav__content md-whiteframe-z1 md-default-theme" layout="vertical">
+        
+        <!--SESSIONS-->
+        <md-button tabindex="-1" class="realm-app__sidenav__content__item md-default-theme" ui-sref="index.login">
+            <button class="md-button-inner">
+                <md-item-content>
+                    <div class="md-tile-left">
+                        <i class="mdi mdi-schedule"></i>
+                    </div>
+                    <div class="md-tile-content cbt">
+                        <span class="md-tile-content__text cbt">Sessions</span>
+                    </div>
+                </md-item-content>
+            </button>
+        </md-button>
+        
+        <md-divider class="md-default-theme"></md-divider>
+        
+        <!--COURSES-->
+        <md-button tabindex="-1" class="realm-app__sidenav__content__item md-default-theme" ui-sref="student.sessions">
+            <button class="md-button-inner">
+                <md-item-content>
+                    <div class="md-tile-left">
+                        <i class="mdi mdi-school"></i>
+                    </div>
+                    <div class="md-tile-content cbt">
+                        <span class="md-tile-content__text cbt">Courses</span>
+                    </div>
+                </md-item-content>
+            </button>
+        </md-button>
+
+        <md-divider class="md-default-theme"></md-divider>
+        
+        <!--PROFILE-->
+        <md-button tabindex="-1" class="realm-app__sidenav__content__item md-default-theme" ui-sref="student.sessions">
+            <button class="md-button-inner">
+                <md-item-content>
+                    <div class="md-tile-left">
+                        <i class="mdi mdi-account-box"></i>
+                    </div>
+                    <div class="md-tile-content cbt">
+                        <span class="md-tile-content__text cbt">Profile</span>
+                    </div>
+                </md-item-content>
+            </button>
+        </md-button>
+
+        <md-divider class="md-default-theme"></md-divider>
+        
+        <!--SCHEDULE-->
+        <md-button tabindex="-1" class="realm-app__sidenav__content__item md-default-theme" ui-sref="student.sessions">
+            <button class="md-button-inner">
+                <md-item-content>
+                    <div class="md-tile-left">
+                        <i class="mdi mdi-event"></i>
+                    </div>
+                    <div class="md-tile-content cbt">
+                        <span class="md-tile-content__text cbt">Schedule</span>
+                    </div>
+                </md-item-content>
+            </button>
+        </md-button>
+
+        <md-divider class="md-default-theme"></md-divider>
+        
+        <!--NOTIFICATIONS-->
+        <md-button tabindex="-1" class="realm-app__sidenav__content__item notifications-button md-default-theme" ui-sref="student.sessions">                   <button class="md-button-inner">
+                <md-item-content class="md-item">
+                    <div class="md-tile-left">
+                        <i class="mdi mdi-question-answer"></i>
+                    </div>
+                    <div class="md-tile-content">
+                        <span class="md-tile-content__text cbt">Notifications</span>
+                        <span class="notifications-badge cbt md-whiteframe-z1">1
+                        </span>
+                    </div>
+                </md-item-content>
+            </button>
+        </md-button>
+
+        <md-divider class="md-default-theme"></md-divider>
+        
+    </md-content>
+</md-sidenav>
+
+<md-content class="realm-app__content cbt" layout-fill>
+    
+    <!--Loading Bar-->
+    <md-progress-linear md-mode="indeterminate" class="loading" flex="90" offset="5"></md-progress-linear>
+    
+    <!--Experiment View-->
+    <div layout="vertical" class="experiment-view" >  
+       
+        <!--Toolbar-->
+        <md-toolbar class="experiment-view__toolbar toolbar cbt">
+            <h1 class="experiment-view__toolbar__title">Experiment</h1>
+        </md-toolbar>
+
+        <!--Scroll View-->
+        <section class='experiment-view__scrollview'>
+
+            <!--Menu Button-->
+            <button class="menu-button" ng-click="menuButtonClicked()">
+                <i class="mdi mdi-menu">
+                </i>
+            </button>
+            
+            <!--Loading Icon-->
+            <!--i class="mdi mdi-autorenew"></i-->
+            
+            <!--Scroll Content-->
+            <md-content class="experiment-view__scroll-content" layout="horizontal">
+                
+                
+                <!--Card-->
+                <section ng-repeat="component in vm.experimentUI.components" class="component-card cbt" layout="vertical" flex="100" flex-sm="100" flex-md="100" flex-lg="50">
+                    <!--Card Container-->
+                    <div class="component-card__container">
+                        <!--Card Toolbar-->
+                        <md-toolbar class="component-card__toolbar toolbar">
+                            <h2 class="component-card__toolbar__title toolbar__title">{{component.heading}}</h2>
+                            <div yield-to="component-card__toolbar-button-container"></div>
+                        </md-toolbar>
+
+                        <!--Card Content-->
+                        <ui-component component="component"></ui-component>
+                    </div>
+                </section>
+                
+            </md-content>
+        </section>
+    </div>
+</md-content>
+

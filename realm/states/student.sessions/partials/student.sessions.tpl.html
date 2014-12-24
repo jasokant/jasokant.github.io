@@ -1,55 +1,85 @@
-<div layout="vertical" class="student-screen" > 
-    <section layout="vertical" layout-fill>	
-		<div layout="horizontal" layout-fill>
-			<md-toolbar scrollshrink class="studentSessions-toolbar cbt">
-				
-				<h1 class="studentSessions-toolbar__title ">Sessions</h1>
+<!--Loading Bar-->
+<md-progress-linear md-mode="indeterminate" class="loading cbt" flex="90" offset="5"></md-progress-linear>
 
+<!--Student Sessions View-->
+<div layout="vertical" class="student-sessions-view" >  
+   
+    <!--Toolbar-->
+    <md-toolbar class="student-sessions-view__toolbar toolbar cbt">
+        <h1 class="student-sessions-view__toolbar__title">Sessions</h1>
+    </md-toolbar>
 
-			</md-toolbar>
-		</div>	
-	</section>
+    
+    <!--Scroll View-->
+	<section class='student-sessions-view__scrollview'>
+        
+        <!--Floating Action Buttons-->
 
-	<section class='studentSessions__scrollview'>
-		
-		<md-button class="sort-sessions-button md-fab" ng-click="sortSessions()">
-			<i class="mdi mdi-sort">
-			</i>
-		</md-button>
-
-		<md-button ng-click="addSession()" class="join-session-button md-fab">
-			<i class="mdi mdi-add"></i>
-		</md-button>
-
+            <!--Sort Sessions-->
+            <md-button class="sort-sessions-button md-fab" ng-click="sortSessions()">
+                <md-tooltip>
+                    Sort
+                </md-tooltip>
+                <i class="mdi mdi-sort">
+                </i>
+            </md-button>
+            
+            <!--Join Session-->
+            <md-button ng-click="addSession()" class="join-session-button md-fab">
+                <md-tooltip>
+                    Join
+                </md-tooltip>
+                <i class="mdi mdi-add"></i>
+            </md-button>
+        
+        <!--Menu Button-->
 		<button class="menu-button" ng-click="menuButtonClicked()">
 			<i class="mdi mdi-menu">
 			</i>
 		</button>
+        
+        <!--Scroll Content-->
+		<md-content class="student-sessions-view__scroll-content" layout="horizontal">
+		
+		    <!--Card-->
+			<section ng-repeat="session in vm.sessions | filter:pastFilter | orderBy:vm.predicate:vm.reverse" class="student-session-card cbt" layout="vertical" flex="100" flex-sm="100" flex-md="100" flex-lg="50">
+			    <!--Card Container-->
+                <div class="student-session-card__container">
+                    <!--Card Toolbar-->
+                    <md-toolbar class="student-session-card__toolbar">
+                        <h2 class="student-session-card__toolbar__title">{{session.assignment.name}}</h2>
+                        
+                        <!--Add Session To GCal Button-->
+                        <md-button class="student-session-card__calendar-button" ng-disabled="false" ng-click="addSessionToGCal(session)">
+                            <md-tooltip>
+                                Add To My Google Calendar
+                            </md-tooltip>
+                            <i class="mdi mdi-alarm-add">
+                            </i>
+                        </md-button>
+                        
+                        <!--Launch Session Button-->
+                        <md-button class="student-session-card__launch-button" ng-disabled="!session.isActive" ng-click="launchExperiment(session.sessionToken)">
+                            <md-tooltip>
+                                Launch Session
+                            </md-tooltip>
+                            <i class="mdi mdi-launch">
+                            </i>
+                        </md-button>
+                    </md-toolbar>
 
-		<i class="mdi mdi-replay" style="position:absolute; width:50px; font-size:100px; left:calc(50vw - 50px); top:calc(50vh - 50px); color:#4a148c"></i>
-
-		<md-content class="scroll" style="width:100%; height:100%; background:transparent" layout="horizontal" layout-padding>
-			<section ng-repeat="session in vm.sessions | filter:myFilter | orderBy:vm.predicate:vm.reverse" class="student-session-card md-card cbt" layout="vertical" flex-lg="50">
-				<md-toolbar class="student-session-card__toolbar">
-					<h2 class="student-session-card__toolbar__title">{{session.assignment.name}}</h2>
-					<md-button class="student-session-card__toolbar__calendar-button" ng-disabled="false" ng-click="addSessionToGCal(session)">
-						<i class="mdi mdi-event">
-						</i>
-					</md-button>
-					<md-button class="student-session-card__toolbar__launch-button" ng-disabled="!session.isActive" ng-click="launchExperiment(session.assignment.loc)">
-						<i class="mdi mdi-launch">
-						</i>
-					</md-button>
-				</md-toolbar>
-				<md-content class="student-session-card__content" layout="vertical" layout-sm="vertical" layout-md="horizontal" layout-lg="horizontal" flex>
-					<form style="padding:24px; width:100%">
-						<md-text-float label="Assignment Name" class="long" ng-model="session.assignment.name" disabled> </md-text-float>
-						<md-text-float label="Start" class="long" ng-model="session.startDate.calendar()" disabled> </md-text-float>
-						<md-text-float label="End" class="long" ng-model="session.endDate.calendar()" disabled> </md-text-float>
-						<md-text-float label="Session Token" class="long" ng-model="session.sessionToken" disabled> </md-text-float>
-					</form>
-				</md-content>
+                    <!--Card Content-->
+                    <md-content class="student-session-card__content" layout="vertical" layout-sm="vertical" layout-md="horizontal" layout-lg="horizontal" flex>
+                        <form class="student-session-card__form">
+                            <md-text-float label="Assignment Name" class="long" ng-model="session.assignment.name" disabled> </md-text-float>
+                            <md-text-float label="Start" class="long" ng-model="session.startDate.calendar()" disabled> </md-text-float>
+                            <md-text-float label="End" class="long" ng-model="session.endDate.calendar()" disabled> </md-text-float>
+                            <md-text-float label="Session Token" class="long" ng-model="session.sessionToken" disabled> </md-text-float>
+                        </form>
+                    </md-content>
+                </div>
 			</section>
+			
 		</md-content>
 	</section>
 </div>

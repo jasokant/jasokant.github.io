@@ -12,7 +12,7 @@ angular.module('realm')
 
 	//Entry delay for animations
 	$timeout(function(){
-		$('.mdi-replay').hide();
+		$('md-progress-linear').addClass('animated fadeOut');
 
 		$scope.vm.sessions = [{
 			loc:'Session-1',
@@ -107,7 +107,7 @@ angular.module('realm')
 			      GAuthService.createEvent(calendarId, true, session.assignment.name, session.startDate.format(), session.endDate.format()).then(function(){
 			        //SUCCESS
 			        $mdDialog.show({
-						templateUrl: 'states/student.sessions/partials/student.sessions.addSessionToGCalSuccess.tpl.html',
+						templateUrl: 'states/student.sessions/partials/student.sessions.addSessionToGCalSuccessDialog.tpl.html',
 						controller: 'addSessionToGCalSuccessDialogController'
 					})
 						.then(function(){
@@ -119,7 +119,7 @@ angular.module('realm')
 			      },function(){
 			        //FAILURE
 			        $mdDialog.show({
-						templateUrl: 'states/student.sessions/partials/student.sessions.addSessionToGCalFailure.tpl.html',
+						templateUrl: 'states/student.sessions/partials/student.sessions.addSessionToGCalFailureDialog.tpl.html',
 						controller: 'addSessionToGCalFailureDialogController'
 					})
 						.then(function(){
@@ -143,8 +143,8 @@ angular.module('realm')
 		$mdSidenav('left').toggle();
 	}
 
-	$scope.launchExperiment = function(assignmentLocation) {
-		$state.go('experiment',{assignmentLocation: assignmentLocation});
+	$scope.launchExperiment = function(sessionToken) {
+		$state.go('experiment',{sessionToken: sessionToken});
 	}
 
 	$scope.sortSessions = function(){
@@ -170,10 +170,10 @@ angular.module('realm')
 		var temp = $scope.vm.sessions;
 		$scope.vm.sessions = null;
 
-		$('.mdi-replay').show();
+		$('.mdi-autorenew').show();
 
 		$timeout(function(){
-			$('.mdi-replay').hide();
+			$('.mdi-autorenew').hide();
 
 			$scope.vm.sessions = temp;
 
@@ -183,7 +183,7 @@ angular.module('realm')
 		},2000);
 	}
 
-	$scope.myFilter = function(item)
+	$scope.pastFilter = function(item)
 	{
 		if($scope.vm.showPast) return true;
 		else return !item.endDate.isBefore(moment());

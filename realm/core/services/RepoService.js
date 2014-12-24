@@ -141,7 +141,7 @@ realm_services.service('RepoService',function($http, $q) {
         else if(serverDown)
         {
             this.getObject = function(objectType, objectLocation) {
-
+                
             }
 
             this.getPerson = function(personLocation) {
@@ -165,6 +165,79 @@ realm_services.service('RepoService',function($http, $q) {
 
             this.getSession = function(sessionLocation) {
 
+            }
+            
+            this.getSessionUI = function(sessionLocation) {
+                var sessionUI = $q.defer();
+                
+                var mockResponse = {
+                    components : [
+                        {
+                            'type':'cameraFeedComponent',
+                            'heading':'Camera',
+                            'url':'rest/device/camera',
+                            'layout':{
+                                "flex-lg":"33",
+                                "offset-lg":"0",
+                                "flex-md":"50",
+                                "offset-md":"25"
+                            },
+                            'options':{
+
+                            }
+                        },
+                        {
+                            'type':'angleInputComponent',
+                            'heading':'Angle Input',
+                            'url':'rest/device/mico',
+                            'layout':{
+                                "flex-lg":"33",
+                                "flex-md":"60"
+                            },
+                            'options':{
+
+                            }
+                        },
+                        {
+                            'type':'joystickInputComponent',
+                            'heading':'Joysticks',
+                            'url':'rest/device/mico',
+                            'layout': {
+                                "flex-lg":"33",
+                                "flex-md":"40"
+                            },
+                            'options': {
+                                axesEnabled: [true,true,true,true]
+                            }   
+                        },
+                        {
+                            'type':'angleStateComponent',
+                            'heading':'Angle State',
+                            'url':'rest/device/mico',
+                            'layout':{
+
+                            },
+                            'options': {
+
+                            }
+                        },
+                        {
+                            'type':'poseStateComponent',
+                            'heading':'Pose State',
+                            'url':'rest/device/mico',
+                            'layout':{
+
+                            },
+                            'options':{
+                                
+                            }
+                        }
+                    ]
+                }
+                
+                sessionUI.resolve(mockResponse);
+
+                return sessionUI.promise;
             }
 
             this.getCourse = function(courseLocation) {

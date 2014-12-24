@@ -1,0 +1,1828 @@
+
+
+
+/*
+ * Global Styles
+ * region
+*/
+    /*
+     * DEFAULT
+     * region
+     */
+
+
+        /* 
+         * Custom Scrollbar
+         * region
+         */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-button {
+                width: 8px;
+                height:5px;
+            }
+            ::-webkit-scrollbar-track {
+                background:#eee;
+                border: thin solid lightgray;
+                box-shadow: 0px 0px 3px #dfdfdf inset;
+                border-radius:10px;
+            }
+            ::-webkit-scrollbar-thumb {
+                background:#999;
+                border: thin solid gray;
+                border-radius:10px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background:#7d7d7d;
+            }
+        /*endregion*/
+
+        /*
+         * Animations/Transitions
+         * region
+         */
+
+            .cbt /*Cubic Bezier Transition*/
+            {
+                -webkit-transition: all 300ms cubic-bezier(0.770, 0.150, 0.250, 0.855); 
+                -moz-transition: all 300ms cubic-bezier(0.770, 0.150, 0.250, 0.855); 
+                -o-transition: all 300ms cubic-bezier(0.770, 0.150, 0.250, 0.855); 
+                transition: all 300ms cubic-bezier(0.770, 0.150, 0.250, 0.855);           
+            }
+
+            @-moz-keyframes spin { 
+                0% { -moz-transform-origin: 50px 50px 50px; -moz-transform:rotateZ(0deg); opacity:0.1;}
+                50% { opacity:1;} 
+                100% { -moz-transform-origin: 50px 50px 50px; -moz-transform: rotateZ(360deg); opacity:0.1;} 
+            }
+            @-webkit-keyframes spin { 
+                0% { -webkit-transform-origin: 50px 50px 50px; -webkit-transform:rotateZ(0deg); opacity:0.1;}
+                50% { opacity:1;} 
+                100% { -webkit-transform-origin: 50px 50px 50px; -webkit-transform: rotateZ(360deg); opacity:0.1;} 
+            }
+            @keyframes spin { 
+                0% { transform-origin: 50px 50px 50px; transform:rotateZ(0deg); opacity:0.1;}
+                50% { opacity:1;} 
+                100% { transform-origin: 50px 50px 50px; transform: rotateZ(360deg); opacity:0.1;} 
+            }
+
+            .mdi-autorenew
+            {
+                -webkit-animation:spin 1s linear infinite;
+                -moz-animation:spin 1s linear infinite;
+                animation:spin 1s linear infinite;
+            }
+
+            md-toolbar.banner {
+                background-color:#B0BEC5;
+            }
+
+            md-toolbar.banner a {
+                background-image: url(../images/realmBanner.png);
+                background-size: contain;
+                background-position:74px;
+                background-repeat: no-repeat;
+                width: 100%;midgetman2
+                height: 60%;
+
+                margin-top: -10px;
+            }
+
+            md-toolbar.banner h1 {
+                padding:0;
+            }
+        /*endregion*/
+
+        /*
+         * Dialog
+         * region
+         */
+            .dialog__title {
+                font-weight:300;
+                margin-left:16px;
+            }
+        /*endregion*/
+
+        /*
+         * Main Content
+         * region
+         */
+            .realm-app__content
+            {
+                background-color: #37474F !important;
+                background-image: url(http://www.transparenttextures.com/patterns/project-paper.png);
+            }
+
+            .realm-app.ng-enter
+            {
+                -webkit-animation: fadeIn 1s;
+                -moz-animation: fadeIn 1s;
+                -ms-animation: fadeIn 1s;
+                animation: fadeIn 1s;
+                
+                
+            }
+        /*endregion*/
+
+        /*
+         * Reusable Styles
+         * region
+         */
+
+            .md-card
+            {
+                min-height:440px;
+            }
+
+            .menu-button {
+                background-color: rgba(0,0,0,0);
+                border:none;
+                position:fixed;
+                left:0px;
+                top:0px;
+                top:0px;
+                margin:0;
+                width:64px;
+                height:64px;
+                padding-top:0px;
+
+                z-index:1000000000;
+            }
+
+            .menu-button i
+            {
+                color:white;
+                font-size:40px;
+            }
+
+            md-button
+            {
+                display:block;
+                width:100%;
+
+                text-align: left;
+                text-transform: none;
+            }
+
+            md-tooltip
+            {
+                z-index:10000000000000;
+            }
+
+            .loading
+            {
+                position: fixed;
+                top: 50%;
+                width: calc(100vw - 24px);
+            }
+            
+            /*[flex="100"]
+            {
+                flex: 0 0 100%;
+            }*/
+        /*endregion*/
+
+        /*
+         * Sidenav
+         * region
+         */
+         
+            md-sidenav.realm-app__sidenav + .realm-app__content
+            {   
+                background-color: #37474F !important;   
+                background-image: url(http://www.transparenttextures.com/patterns/project-paper.png);
+            }
+
+            .realm-app__sidenav
+            {
+                background-color: #673ab7 !important;
+                display:block;
+                z-index: 100;
+
+                overflow: hidden;
+            }
+
+            .realm-app__sidenav__toolbar
+            {
+                height:208px !important;
+            }
+
+            .realm-app__sidenav__content
+            {
+
+            }
+
+            .realm-app__sidenav__toolbar__avatar-container
+            {
+                background-color:#673ab7;
+                width:100%;
+                height:144px;
+                position:absolute;
+            }
+
+            .realm-app__sidenav__toolbar__avatar
+            {
+
+                opacity: 1;
+                color:white;
+                position:absolute;
+                bottom: 24px;
+                left: 24px;
+                font-size:88px;
+            }
+
+            .realm-app__sidenav__toolbar__email
+            {
+                opacity: 1;
+                position:absolute;
+                bottom:0;
+                width:100%;
+                height:64px;
+                padding-left:16px;
+                padding-top:22px;
+                font-size:16px;
+                overflow: hidden;
+                
+                top:144px;
+
+                background-color: rgb(146,146,146) !important;
+                color:white;
+                background-image: url(http://www.transparenttextures.com/patterns/project-paper.png);
+            }
+
+
+
+            md-button.realm-app__sidenav__content__item button.md-button-inner
+            {
+                padding:0;
+            }
+
+            md-item-content
+            {
+                height:64px;
+            }
+
+            .md-tile-left, .md-tile-right
+            {
+                width:64px;
+                height:64px;
+            }
+
+            .md-tile-left i, .md-tile-right i
+            {
+                font-size:40px;
+
+                margin-top:16px;
+                margin-left: 0px;
+            }
+
+            .md-tile-content
+            {
+
+                font-weight:bold;
+                position:absolute;
+                top:8px;
+                left:64px;
+
+
+                text-align: left;
+                padding-left: 0px;
+            }
+
+            .notifications-badge 
+            {
+                position:absolute;
+
+                top: 26px;
+                left: -60px;
+                width:24px;
+                height:24px;
+                padding:6px;
+                line-height:12px; 
+
+                text-align: center;
+
+
+                background-color:red;
+                color:white;
+
+                border-radius:50%;
+            }
+
+            .realm-app__sidenav:hover .notifications-badge
+            {
+                top: 12px;
+                left: 104px;
+
+                width:24px;
+                height:24px;
+                padding:6px;
+                line-height:12px; 
+            }
+
+            .notifications-button:hover .notifications-badge 
+            {
+                top: 7px;
+                left: 99px;
+
+                width:34px;
+                height:34px;
+                padding:11px;
+                line-height:12px; 
+            }
+        /*endregion*/
+    /*endregion*/
+
+    /*
+     * SM
+     * region
+     */
+        @media (min-width: 600px) and (max-width: 959px-)
+        {
+            
+        }
+    /*endregion*/
+
+    /*
+     * MD
+     * region
+     */
+        @media (min-width: 960px) and (max-width: 1199px)
+        {
+                
+        }
+    /*endregion*/
+
+    /*
+     * LG
+     * region
+     */
+        @media (min-width: 1200px)
+        {
+                
+        }
+    /*endregion*/
+/*endregion*/
+
+/*
+ * STATE: index(abstract)
+ * region
+*/
+    /*
+     * DEFAULT
+     * region
+     */
+        /*
+         * Top Toolbar
+         * region
+         */
+            .index-view__toolbar {
+                height:128px;
+            }
+
+            .index-view__brand-banner {
+                height:80px;
+                width: 255px;
+
+                margin-left:32px;
+                margin-top:32px;
+
+                background-image:url('../../images/realmBanner.png');
+            }
+        /*endregion*/
+
+        /*
+         * Content
+         * region
+         */
+
+            .index-view__content {
+                padding:16px;
+
+                background-color:#37474F !important;
+                background-image: url(http://www.transparenttextures.com/patterns/project-paper.png);
+            }
+
+            .index-view__container {
+                height:100%;
+            }
+
+            .index-view__container
+            {
+                width:calc(100vw - 32px);
+                height:calc(100vh - 128px - 32px);
+
+                margin-left:auto;
+                margin-right:auto;
+            }
+
+            .index-view__ui-view
+            {
+                background: #ffffff;
+
+                overflow-y:auto;
+            }
+
+            .index-view__ui-view.ng-enter
+            {
+                -webkit-animation: fadeIn 0.8s;
+                -moz-animation: fadeIn 0.8s;
+                -ms-animation: fadeIn 0.8s;
+                animation: fadeIn 0.8s;
+            }
+        /*endregion*/
+    /*endregion*/
+
+    /*
+     * SM
+     * region
+     */
+
+        @media (min-width: 600px) and (max-width: 959px)
+        {
+            
+        }
+    /*endregion*/
+
+    /*
+     * MD
+     * region
+     */
+        @media (min-width: 960px) and (max-width: 1199px)
+        {
+            .index-view__container
+            {
+                width:calc((100vw - 32px) / 2);
+            }
+        }
+    /*endregion*/
+
+    /*
+     * LG
+     * region
+     */
+        @media (min-width: 1200px)
+        {
+            .index-view__container
+            {
+                width:calc((100vw - 32px) / 2);
+            }
+        }
+    /*endregion*/
+/*endregion*/
+
+/*
+ * STATE: index.login
+ * region
+*/
+
+    /*
+     * DEFAULT
+     * region
+     */
+
+        /*
+         * LOGIN FORM
+         * region
+         */
+            .login-form {
+                width:100%;
+                padding-top:16px;
+                padding-left:40px;
+                padding-right:40px;
+
+            }
+            md-input-group input {
+                width:100% !important;
+            }
+
+            .login-button {
+                width: 100%;
+                margin-top:40px;
+            }
+        /*endregion*/
+    /*endregion*/
+
+    /*
+     * SM
+     * region
+     */
+
+        @media (min-width: 600px) and (max-width: 959px)
+        {
+            .login-form {
+                padding-top:32px;
+                padding-left:64px;
+                padding-right:64px;
+
+            }
+        }
+    /*endregion*/
+
+    /*
+     * MD
+     * region
+     */
+
+        @media (min-width: 960px) and (max-width: 1199px)
+        {
+            .login-form {
+                padding-top:32px;
+                padding-left:64px;
+                padding-right:64px;
+
+            }
+        }
+    /*endregion*/
+
+    /*
+     * LG
+     * region
+     */
+
+        @media (min-width: 1200px)
+        {
+            .login-form {
+                padding-top:32px;
+                padding-left:64px;
+                padding-right:64px;
+
+            }
+        }
+    /*endregion*/
+/*endregion*/
+
+/*
+ * STATE: index.signup
+ * region
+*/
+
+    /*
+     * DEFAULT
+     * region
+     */
+
+        /*
+         * Signup Form
+         * region
+         */
+            .signup-form {
+                width:100%;
+                padding-top:16px;
+                padding-left:40px;
+                padding-right:40px;
+            }
+
+            .signup-button {
+                width: 100%;
+                margin-top:32px;
+                margin-bottom:64px;
+            }
+        /*endregion*/
+    /*endregion*/
+
+    /*
+     * SM
+     * region
+     */
+        @media (min-width: 600px) and (max-width: 959px)
+        {
+            .signup-form {
+                padding-top:32px;
+                padding-left:64px;-
+                padding-right:64px;
+
+            }
+        }
+    /*endregion*/
+
+    /*
+     * MD 
+     * region
+     */
+
+        @media (min-width: 960px) and (max-width: 1199px)
+        {
+            .signup-form {
+                padding-top:32px;
+                padding-left:64px;
+                padding-right:64px;
+
+            }
+        }
+    /*endregion*/
+
+    /*
+     * LG
+     * region
+     */
+        @media (min-width: 1200px)
+        {
+            .signup-form {
+                padding-top:32px;
+                padding-left:64px;
+                padding-right:64px;
+
+            }
+        }
+    /*endregion*/
+/*endregion*/
+
+/*
+ * STATE: student(abstract)
+ * region
+*/
+
+    /*
+     * DEFAULT
+     * region
+     */
+    /*endregion*/
+
+    /*
+     * SM
+     * region
+     */
+        @media (min-width: 600px) and (max-width: 959px)
+        {
+
+        }
+    /*endregion*/
+
+    /*
+     * MD
+     * region
+     */
+        @media (min-width: 960px) and (max-width: 1199px)
+        {
+
+        }
+    /*endregion*/
+
+
+    /*
+     * LG
+     * region
+     */
+        @media (min-width: 1200px)
+        {
+
+        }
+    /*endregion*/
+/*endregion*/
+
+/*
+ * STATE: student.sessions
+ * region
+*/
+
+    /*
+     * DEFAULT
+     * region
+     */
+        
+        /*
+         * Scrollable
+         * region
+         */
+            .student-sessions-view__scrollview
+            {
+                position:absolute;
+                overflow:auto;
+                left:0;
+                top:0;
+
+                width:100%;
+                height:100%;
+
+                background-color: transparent;
+                z-index: 11;
+            }
+
+            .student-sessions-view__scroll-content {
+                display: flex !important;
+                flex-wrap:wrap;
+                
+                background-color: transparent !important;
+                
+                margin:0;
+                
+                padding-top:72px;
+                
+                padding-left:8px;
+                padding-right:8px;
+                padding-bottom:8px;
+            }
+        /*endregion*/
+        
+        /*
+         * Toolbar
+         * region
+         */
+        
+            .student-sessions-view__toolbar {
+                height:64px;
+                position:fixed;
+            }
+
+            .student-sessions-view__toolbar__title {
+                position:absolute;
+                display:block;
+                
+                font-weight:300;
+                
+                margin:0;
+                
+                left:64px;
+                top:8px;
+            }
+
+            .student-sessions-view__toolbar {
+                height:64px;
+            }
+
+            .student-sessions-view__banner {
+                height:80px;
+                width: 255px;
+
+                margin-left:32px;
+                margin-top:64px;
+
+                background-image:url('../../images/realmBanner.png');
+            }
+        /*endregion*/
+        
+        /*
+         * Student Session Card
+         * region
+         */
+            .student-session-card
+            {
+                margin:0;
+                padding:8px;
+            }
+
+            .student-session-card__container
+            {
+                box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+            }
+    
+            .student-session-card__toolbar
+            {
+                background-color: rgb(146, 146, 146) !important;
+                height:88px;
+            }
+
+                .student-session-card__toolbar__title
+                {
+                    font-weight: 300;
+                    font-size:32px;
+
+                    display:none;
+
+                    position:absolute;
+                    margin:0;
+                    left:24px;
+                    top:24px;
+                }
+
+            .student-session-card__calendar-button
+            {
+                height:88px;
+                width:72px;
+
+                position:absolute;
+                right:88px;
+            }
+
+                .student-session-card__calendar-button i
+                {
+                    font-size:32px;
+                }
+
+            
+
+            .student-session-card__launch-button
+            {
+                height:88px;
+                width:72px;
+
+                position:absolute;
+                right:16px;
+            }
+
+            .student-session-card__launch-button[aria-disabled="false"]
+            {
+                color:#4A148C;
+                -webkit-animation:flash 2.5s infinite;
+                   -moz-animation:flash 2.5s infinite;
+                        animation:flash 2.5s infinite;
+            }
+
+                .student-session-card__launch-button i
+                {
+                    font-size:32px;
+                }
+
+            .student-session-card__form
+            {
+                width:100%;
+                
+                padding-top: 20px;
+                padding-bottom: 28px;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+                .student-session-card__form label, .student-session-card__form input
+                {
+                    color: #999 !important;
+                }
+    
+
+            .student-session-card__content
+            {
+
+            }
+            .student-session-card.ng-enter {
+                -webkit-animation: zoomIn 0.8s;
+                -moz-animation: zoomIn 0.8s;
+                -ms-animation: zoomIn 0.8s;
+                animation: zoomIn 0.8s;
+            }
+ 
+            .student-session-card.ng-leave {
+                -webkit-animation: zoomOut 1s;
+                -moz-animation: zoomOut 1s;
+                -ms-animation: zoomOut 1s;
+                animation: zoomOut 1s;
+            }
+
+
+
+            .student-session-card md-text-float, .student-session-card input     {
+                width:100%;
+            }
+
+            .student-session-card md-input-group {
+
+            }
+        /*endregion*/
+
+        /*
+         * Floating Action Buttons
+         * region
+         */
+            .sort-sessions-button
+            {
+                position:fixed;
+                top:44px;
+                right:104px;
+
+                z-index:111 !important;
+                background-color:green !important;
+
+                width:56px;
+                height:56px;
+                border-radius:50% !important;
+            }
+
+            .sort-sessions-button i
+            {
+                font-size:24px;
+            }
+
+            .join-session-button
+            {
+                position:fixed;
+                top:44px;
+                right:24px;
+
+                z-index:111 !important;
+                background-color:yellow !important;
+            }
+
+            .join-session-button i
+            {
+                font-size:24px;
+            }
+        /*endregion*/
+
+    /*endregion*/
+
+    /*
+     * SM
+     * region
+     */
+        @media (min-width: 600px) and (max-width: 959px)
+        {
+            .join-session-button 
+            {
+                top:48px;
+                right:24px;
+            }
+
+            .sort-sessions-button
+            {
+                top:48px;
+                right:104px;
+            }
+
+
+            .student-sessions-view__scroll-content {
+                padding-bottom:8px;
+            }
+
+            
+            .student-session-card {
+            }
+
+            .student-session-card__toolbar__title
+            {
+                display:block;
+            }
+        }
+    /*endregion*/
+
+    /*
+     * MD
+     * region
+     */
+        @media (min-width: 960px) and (max-width: 1199px)
+        {
+            .student-sessions-view__toolbar
+            {
+                height:192px;
+            }
+            
+            
+            .join-session-button 
+            {
+                top:164px;
+                right:32px;
+            }
+
+            .sort-sessions-button
+            {
+                top:164px;
+                left:28px;
+            }
+
+            
+
+            .student-sessions-view__scroll-content {
+                padding-top:96px;
+                
+                padding-left:104px;
+                padding-right:104px;
+                padding-bottom:104px;
+            }
+            
+            .student-session-card {
+            }
+            
+            .student-session-card__toolbar__title
+            {
+                display:block;
+            }
+
+
+        }
+    /*endregion*/
+
+    /*
+     * LG
+     * region
+     */
+        @media (min-width: 1200px)
+        {
+            .join-session-button 
+            {
+                top:163px;
+                right:28px;
+            }
+
+            .sort-sessions-button
+            {
+                top:163px;
+                left:24px;
+            }
+
+            
+
+            .student-sessions-view__scroll-content {
+                padding-top: 96px;
+                padding-left:104px;
+                padding-right:104px;
+                padding-bottom:104px;
+            }
+            .student-session-card {
+            }
+
+            .student-session-card:first-child {
+            }
+
+            .student-sessions-view__toolbar {
+                height:192px;
+            }
+                
+
+            .student-session-card__toolbar__title
+            {
+                display:block;
+            }
+
+        }
+    /*endregion*/
+/*endregion*/
+
+/*
+ * STATE: experiment
+ * region
+*/
+
+    /*
+     * DEFAULT
+     * region
+     */
+        
+        /*
+         * Scrollable
+         * region
+         */
+            .experiment-view__scrollview
+            {
+                position:absolute;
+                overflow:auto;
+                left:0;
+                top:0;
+
+                width:100%;
+                height:100%;
+
+                background-color: transparent;
+                z-index: 11;
+            }
+
+            .experiment-view__scroll-content {
+                display: flex !important;
+                flex-wrap:wrap;
+                
+                background-color: transparent !important;
+                
+                margin:0;
+                
+                padding-top:72px;
+                
+                padding-left:8px;
+                padding-right:8px;
+                padding-bottom:8px;
+
+                min-height:100vh;
+            }
+        /*endregion*/
+        
+        /*
+         * Toolbar
+         * region
+         */
+            .experiment-view__toolbar {
+                height:64px;
+            }
+
+            .experiment-view__toolbar__title {
+                transition:all 0.2s ease;
+
+                font-weight: 300;
+                font-size:32px;
+
+                position:absolute;
+                margin:0;
+                left:64px !important;
+                top:12px !important;
+            }
+
+            .experiment-view__toolbar {
+                height:64px;
+            }
+
+            .experiment-view__banner {
+                height:80px;
+                width: 255px;
+
+                margin-left:32px;
+                margin-top:64px;
+
+                background-image:url('../../images/realmBanner.png');
+            }
+        /*endregion*/
+        
+        /*
+         * Cards
+         * region
+         */
+            .component-card
+            {
+                padding:8px; 
+            }
+
+            .component-card__container
+            {
+                box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+            }
+    
+            .component-card__toolbar
+            {
+                background-color: rgb(146, 146, 146) !important;
+                height:88px;
+
+                position:relative;
+            }
+
+            .component-card__toolbar__title
+            {
+                font-weight: 300;
+                font-size:32px;
+
+                position:absolute;
+                margin:0;
+                left:24px;
+                top:24px;
+
+                width:calc(100% - 144px - 24px);
+                white-space: nowrap;
+                overflow:hidden;
+                text-overflow:ellipsis;
+            }
+            
+            [yield-to="component-card__toolbar-button-container"]
+            {
+                height:88px;
+                width:144px;
+
+                position:absolute;
+                right:0px;
+            }
+
+            .component-card__toolbar-button
+            {
+                height:88px;
+                width:72px;
+            }
+
+                .component-card__toolbar-button i
+                {
+                    font-size:32px;
+                }
+            
+            .component-card__form
+            {
+                width:100%;
+                
+                padding-top: 20px;
+                padding-bottom: 28px;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+                .component-card__form label, .component-card__form input
+                {
+                    color:black !important;
+                }
+    
+
+            .component-card__content
+            {
+
+            }
+            .component-card.ng-enter {
+                -webkit-animation: fadeIn 0.8s;
+                -moz-animation: fadeIn 0.8s;
+                -ms-animation: fadeIn 0.8s;
+                animation: fadeIn 0.8s;
+            }
+ 
+            .component-card.ng-leave {
+                -webkit-animation: zoomOut 1s;
+                -moz-animation: zoomOut 1s;
+                -ms-animation: zoomOut 1s;
+                animation: zoomOut 1s;
+            }
+
+
+
+            .component-card md-text-float, .component-card input     {
+                width:100%;
+            }
+
+            .component-card md-input-group {
+
+            }
+        /*endregion*/
+
+        /*
+         * Floating Action Buttons
+         * region
+         */
+            .sort-sessions-button
+            {
+                position:fixed;
+                top:44px;
+                right:104px;
+
+                z-index:111 !important;
+                background-color:green !important;
+
+                width:56px;
+                height:56px;
+                border-radius:50% !important;
+            }
+
+            .sort-sessions-button i
+            {
+                font-size:24px;
+            }
+
+            .join-session-button
+            {
+                position:fixed;
+                top:44px;
+                right:24px;
+
+                z-index:111 !important;
+                background-color:yellow !important;
+            }
+
+            .join-session-button i
+            {
+                font-size:24px;
+            }
+        /*endregion*/
+
+    /*endregion*/
+
+    /*
+     * SM
+     * region
+     */
+        @media (min-width: 600px) and (max-width: 959px)
+        {
+            .join-session-button 
+            {
+                top:48px;
+                right:24px;
+            }
+
+            .sort-sessions-button
+            {
+                top:48px;
+                right:104px;
+            }
+
+
+            .experiment-view__scroll-content {
+                padding-bottom:8px;
+            }
+
+            
+            .component-card {
+            }
+
+            .component-card__toolbar__title
+            {
+                display:block;
+            }
+        }
+    /*endregion*/
+
+    /*
+     * MD
+     * region
+     */
+        @media (min-width: 960px) and (max-width: 1199px)
+        {
+            .experiment-view__toolbar
+            {
+                height:192px;
+            }
+            
+            
+            .join-session-button 
+            {
+                top:164px;
+                right:32px;
+            }
+
+            .sort-sessions-button
+            {
+                top:164px;
+                left:28px;
+            }
+
+            
+
+            .experiment-view__scroll-content {
+                padding-top:96px;
+                
+                padding-left:60px;
+                padding-right:60px;
+                padding-bottom:104px;
+            }
+            
+            .component-card {
+            }
+            
+            .component-card__toolbar__title
+            {
+                display:block;
+            }
+
+
+        }
+    /*endregion*/
+
+    /*
+     * LG
+     * region
+     */
+        @media (min-width: 1200px)
+        {
+            .join-session-button 
+            {
+                top:163px;
+                right:28px;
+            }
+
+            .sort-sessions-button
+            {
+                top:163px;
+                left:24px;
+            }
+
+            
+
+            .experiment-view__scroll-content {
+                padding-top: 96px;
+                padding-left:60px;
+                padding-right:60px;
+                padding-bottom:104px;
+            }
+            .component-card {
+            }
+
+            .component-card:first-child {
+            }
+
+            .experiment-view__toolbar {
+                height:192px;
+            }
+                
+
+            .component-card__toolbar__title
+            {
+                display:block;
+            }
+
+        }
+    /*endregion*/
+/*endregion*/
+
+/*
+ * Component Styles
+ * region
+ */
+    /*
+     * DEFAULT
+     * region
+     */
+        /* 
+         * UI Component
+         * region
+         */
+            ui-component
+            {
+                background-color:whitesmoke;
+                display:block;
+                width:100%;
+            }
+                .ui-component__container
+                {
+                    width:100%;
+                }
+        /*endregion*/
+
+        /*
+         * Joystick Input Component
+         * region
+         */
+            joystick-input-component
+            {
+                position:relative;
+
+                display:block;
+                
+                width:288px;
+                height:250px;
+                
+                margin-left:auto;
+                margin-right:auto;
+                margin-top:0px;
+            }
+
+                joystick
+                {
+                    display:block;
+                    float:left;
+                    
+                    margin-top:20px;
+
+                    width:144px;
+                    height:144px;
+                }
+
+                .joystick-1-data
+                {
+                    position:absolute;
+                    width:144px;
+                    
+                    text-align: center;
+
+                    font-size:24px;
+                    font-weight:300;
+
+                    right:50%;
+                    bottom:20px;
+                }
+                .joystick-2-data
+                {
+                    position:absolute;
+                    width:144px;
+                    
+                    text-align: center;
+                    
+                    font-size:24px;
+                    font-weight:300;
+
+                    left:50%;
+                    bottom:20px;
+                }
+
+            .component-card--joystick-fullscreen
+            {
+                margin:0;
+
+                display:block;
+
+                position:fixed;
+
+                left:0;
+                bottom:16px;
+    
+                max-width:100vw;
+                width:calc(100vw - 8px);
+
+                height:250px;
+
+                z-index:1000000000000000001;
+            }
+                .component-card--joystick-fullscreen .component-card__container
+                {
+                    box-shadow:none;
+                }
+                .component-card--joystick-fullscreen ui-component
+                {
+                    background-color:transparent;
+                }
+                .component-card--joystick-fullscreen .component-card__toolbar
+                {
+                    display:none;
+                }
+
+        /*endregion*/
+
+        /*
+         * Camera Feed Component
+         * region
+         */ 
+            camera-feed-component
+            {
+                display:block;
+                width:100%;
+            }
+
+            .camera-feed-component__container
+            {
+                width:100%;
+                min-height:250px;
+            }
+
+            .camera-feed-component__canvas
+            {
+
+            }
+
+            .fullscreen-button
+            {
+                position:absolute;
+                right:16px;
+            }
+
+            .component-card--camera-fullscreen
+            {
+                margin:0;
+
+                display:block;
+
+                position:fixed;
+                left:0;
+                top:0;
+    
+                max-width:100vw;
+                width:100vw;
+
+                height:100vh;
+
+                z-index:1000000001;
+            }
+                
+                .component-card--camera-fullscreen ui-component
+                {
+                    height:calc(100vh - 104px);
+                }
+                .component-card--camera-fullscreen .camera-feed-component__container
+                {
+                    height:calc(100vh - 104px);
+                }
+
+        /*endregion*/
+        /*
+         * Pose State Component
+         * region
+         */
+            pose-state-component
+            {
+                display:block;
+                width:100%;
+                min-height:300px;
+                padding:40px;
+            }
+                .pose-state-component__header
+                {
+                    font-size:24px;
+                    font-weight:300;
+                    
+                    width:100%;
+
+
+                    
+                    margin:0;
+                }
+                .pose-state-component__item
+                {
+                    width:calc(33% - 48px);
+                    
+                    margin-left:24px;
+                    margin-right:24px;
+
+                    float:left;
+                }
+                .pose-state-component__item__key
+                {
+                    width:50%;
+
+                    font-size:20px;
+                    font-weight:300;
+                    
+                    float:left;
+                }
+                .pose-state-component__item__value
+                {
+                    width:50%;
+                    
+                    font-size:20px;
+                    font-weight:300;
+
+                    text-align:right;
+                    
+                    float:left;
+                }
+        /*endregion*/
+        /*
+         * Angle State Component
+         * region
+         */
+            angle-state-component
+            {
+                display:block;
+                
+                width:100%;
+                
+                min-height:160px;
+
+
+            }
+                .angle-state-form
+                {
+                    min-height:160px;
+                }
+                .angle-state-component__container
+                {
+                    width:100%;
+                }
+                .angle-state-form
+                {
+                    padding:24px;
+                    padding-top:32px;
+
+                    display:flex;
+
+                    flex-direction:row;
+                    flex-wrap:wrap;
+                }
+                .angle-state-groups
+                {
+                    flex:0 0 100%;
+
+                    display:flex;
+                    flex-direction:row;
+                    flex-wrap:wrap;
+                }
+                .angle-state-group
+                {
+                    flex:0 0 calc(50% - 24px);
+
+                    height:44px;
+                    
+                    margin-left:auto;
+                    margin-right:auto;
+
+                    position:relative;
+                }
+                    .angle-state-group__name
+                    {   
+                        font-size:20px;
+                        font-weight:300;
+
+                        margin-top:8px;
+                        margin-bottom:8px;
+                    }
+                    .angle-state-group__value
+                    {
+                        font-size:20px;
+                        font-weight:300;
+
+                        position:absolute;
+
+                        margin-top:8px;
+                        margin-bottom:8px;
+
+                        top:0;
+                        right:0;
+                    }
+        /*endregion*/
+        /*
+         * Angle Input Component
+         * region
+         */
+            angle-input-component
+            {
+                display:block;
+                width:100%;
+                min-height:250px;
+            }
+            angle-input-component[min-width="800px"]
+            {
+                
+            }
+                .angle-input-component__container
+                {
+                    width:100%;
+                }
+                .angle-input-form
+                {
+                    padding:24px;
+                    padding-top:32px;
+                    
+                    display:flex;
+                    
+                    flex-direction:row;
+                    flex-wrap:wrap;
+                }
+                .angle-input-component__button
+                {
+                    flex:0 0 calc(50% - 16px);
+                    margin-left:8px;
+                    margin-right:8px;
+                    
+                    height:32px;
+                }
+                .angle-input-groups
+                {
+                    flex:0 0 100%;
+                    margin-top:32px;
+
+                    display:flex;
+                    flex-direction:row;
+                    flex-wrap:wrap;
+                }
+                .angle-input-group
+                {
+                    flex:0 0 calc(50% - 16px);
+
+                    height:67px;
+                    
+                    margin-left:auto;
+                    margin-right:auto;
+
+                    position:relative;
+                }
+                    .angle-input-group:first-of-type
+                    {
+
+                    }
+
+                    .angle-input-group__label
+                    {
+
+                    }
+
+                    .angle-input-group__value
+                    {
+                        position:absolute;
+                        right:0;
+                    }
+                    
+                    .component-card-toolbar__save-angleset-button
+                    {
+                        position:absolute;
+                        right:16px;
+                    }
+
+                    .component-card-toolbar__list-anglesets-button
+                    {
+                        position:absolute;
+                        right:88px;
+                    }
+
+            /*
+             * Load Angle Set Dialog
+             * region
+             */
+                .angleSet-list-item
+                {
+                    width:400px;
+                    
+                    padding-left:16px;
+                    padding-right:16px;
+                    
+                    margin-top:16px !important;
+                    margin-bottom:16px !important;
+                }
+                    .angleSet-list-item__left-tile
+                    {
+                        position:relative;
+                    }
+                    .angleSet-list-item__name
+                    {
+                        position:relative;
+                        left:32px;
+                    }
+                    .angleSet-list-item__right-tile
+                    {
+                        width:64px;
+                        height:64px;
+                    }
+                    .angleSet-list-item__load-angleset-button
+                    {
+                        margin-top:4px !important;
+                        margin-left:4px !important;
+                    }
+                        .angleSet-list-item__load-angleset-button i
+                        {
+                            font-size:32px;
+                        }
+                    .angleSet-list-item__delete-angleset-button
+                    {
+                        margin-top:4px !important;
+                        margin-left:4px !important;
+
+                        position:absolute;
+                        right:16px;
+
+                        opacity:0;
+                    }
+                        .angleSet-list-item__delete-angleset-button i
+                        {
+                            font-size:24px;
+                        }
+                        .angleSet-list-item:hover .angleSet-list-item__delete-angleset-button
+                        {
+                            opacity:1;
+                        }
+            /*endregion*/
+        /*endregion*/
+    /*endregion*/
+/*endregion*/
+
+
+

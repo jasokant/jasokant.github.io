@@ -22,12 +22,13 @@
     "angular-ui-date": "*",
     "angular-scenario": "*",
     "d3": "~3.4.13",
-    "hammerjs":"*",
-    "jquery":"*",
+    "hammerjs": "*",
+    "jquery": "*",
     "jqueryui": "*",
     "virtualjoystick.js": "*"
   },
   "resolutions": {
-    "angular": ">=1.3.0"
+    "angular": ">=1.3.0",
+    "angular-material": "~0.6.1"
   }
 }

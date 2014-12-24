@@ -4,6 +4,7 @@ angular.module('REALM')
     .service('RobotService',function($http, $q){         
         
         var that = this;
+        var serverDown = true;
 
         /*********HELPER FUNCTIONS***********/
         this.hashToArray = function(object) {
@@ -80,21 +81,29 @@ angular.module('REALM')
             this.getJoints = function(devicePath){
                 var angleSet = $q.defer();
                 
-                $http.get(localStorage.basePath + devicePath).then(function(response){
+                if(!serverDown)
+                {
+                    $http.get(localStorage.basePath + devicePath).then(function(response){
 
-                    var jointData = {
-                        degrees: that.hashToArray(response.data.joints),
-                        radians: response.data.jointState.position
-                    }
+                        var jointData = {
+                            degrees: that.hashToArray(response.data.joints),
+                            radians: response.data.jointState.position
+                        }
+                        
+                        angleSet.resolve(jointData);
                     
-                    angleSet.resolve(jointData);
-                
-                }, function(response){
-                    console.log('Failed to get joint angles, error code:');
-                    console.log(response.status);
+                    }, function(response){
+                        console.log('Failed to get joint angles, error code:');
+                        console.log(response.status);
 
-                    angleSet.reject(response.status);
-                });
+                        angleSet.reject(response.status);
+                    });
+                } else {
+                    var jointData = {
+                        radians:[1.01,1.02,1.03,1.04,1.05,1.06]
+                    }
+                    angleSet.resolve(jointData);
+                }
                 
                 return angleSet.promise;
             };

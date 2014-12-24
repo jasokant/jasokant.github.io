@@ -13,9 +13,7 @@ angular.module('REALM').directive('uiComponent', function($compile)
         "joystickInput": "<joystick-input-component></joystick-input-component>",
         "trajectoryComponent": "<trajectory-component></trajectory-component>",
         "playBack": "<play-back-component></play-back-component>",
-        "poseVisualization":"<pose-visualization-component></pose-visualization-component>"
-
-        
+        "poseVisualization":"<pose-visualization-component></pose-visualization-component>"    
     }    
     
     return {

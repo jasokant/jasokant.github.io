@@ -9,7 +9,8 @@ var deps = [
   'realm.services',
   'realm.directives',
   'realm.utils',
-  'realm.controllers'
+  'realm.controllers',
+  'realm.components'
 ];
 
 var realm = angular.module('realm', deps);

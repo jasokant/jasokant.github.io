@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="bower_components/angular-material/themes/yellow-theme.css">
         <link rel="stylesheet" href="dist/css/animate.css">
 
-        <link rel="stylesheet" href="dist/css/realm.css">
+        <link rel="stylesheet" href="realm.css">
         
 
     </head>
@@ -64,11 +64,15 @@
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
         <!--D3-->
         <script src="bower_components/d3/d3.min.js"></script>
-        <script src="bower_components/d3/d3.js"></script>
+        <!--script src="bower_components/d3/d3.js"></script-->
         <!--Virtual Joystick-->
         <script src="bower_components/virtualjoystick.js/virtualjoystick.js"></script>
         <!--Google API JS Client Library-->
         <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+        
+        <!--CSS Element Queries-->
+        <script src="bower_components/css-element-queries/src/ResizeSensor.js"></script>
+        <script src="bower_components/css-element-queries/src/ElementQueries.js"></script>
         <!--realm scripts-->
         <!--Core-->
         <script src="core/realm.module.js"></script>
@@ -93,7 +97,9 @@
         <script src="states/student.sessions/controllers/student.sessions.js"></script>
         <script src="states/student.sessions/controllers/student.sessions.joinSessionDialogController.js"></script>
         <script src="states/student.sessions/controllers/student.sessions.sortSessionsDialogController.js"></script>
+        <script src="states/student.sessions/controllers/student.sessions.addSessionToGCalSuccessDialogController.js"></script>
         <script src="states/experiment/controllers/experiment.js"></script>
+        <script src="states/experiment/controllers/gamepadConnectedDialog.js"></script>
         <!--Common Controllers-->
         <script src="core/controllers/main.js"></script>
         <script src="core/controllers/leftSidebar.js"></script>
@@ -106,21 +112,41 @@
         <script src="core/services/AuthService.js"></script>
         <script src="core/services/RepoService.js"></script>
         <script src="core/services/LayoutService.js"></script>
+        
         <!--Components-->
-        <script src="../realm-components/realm-components.module.js"></script>
-        <script src="../realm-components/uiExperiment/uiExperiment.js"></script>
-        <script src="../realm-components/uiSection/uiSection.js"></script>
-        <script src="../realm-components/uiComponent/uiComponent.js"></script>
-        <script src="../realm-components/cameraFeed/cameraFeedComponent.js"></script>
-        <script src="../realm-components/angleInput/angleInputComponent.js"></script>
-        <script src="../realm-components/poseInput/poseInputComponent.js"></script>
-        <script src="../realm-components/poseState/poseStateComponent.js"></script>
-        <script src="../realm-components/angleState/angleStateComponent.js"></script>
-        <script src="../realm-components/simulation/simulationComponent.js"></script>
-        <script src="../realm-components/joystickInput/joystickInputComponent.js"></script>
-        <script src="../realm-components/trajectory/trajectoryComponent.js"></script>
-        <script src="../realm-components/playBack/playBackComponent.js"></script>
-        <script src="../realm-components/poseVisualization/poseVisualizationComponent.js"></script>
+        <script src="realm-components/realm-components.module.js"></script>
+        <script src="realm-components/uiComponent/uiComponent.js"></script>
+        
+        <script src="realm-components/cameraFeed/cameraFeedComponent.js"></script>
+        
+        <!--Angle Input-->
+        <script src="realm-components/angleInput/angleInput.module.js"></script>
+        <script src="realm-components/angleInput/directives/angleInput.directive.js"></script>
+        <script src="realm-components/angleInput/controllers/angleInput.enterAngleSetNameDialog.js"></script>
+        <script src="realm-components/angleInput/controllers/angleInput.loadAngleSetDialog.js"></script>
+
+        <script src="realm-components/poseInput/poseInputComponent.js"></script>
+        
+        <!--Pose State-->
+        <script src="realm-components/poseState/poseState.module.js"></script>
+        <script src="realm-components/poseState/directives/poseState.directive.js"></script>
+        
+        <!--Angle State-->
+        <script src="realm-components/angleState/angleState.module.js"></script>
+        <script src="realm-components/angleState/directives/angleState.directive.js"></script>
+        
+        <script src="realm-components/simulation/simulationComponent.js"></script>
+        
+        <!--Joystick Input-->
+        <script src="realm-components/joystickInput/joystickInput.module.js"></script>
+        <script src="realm-components/joystickInput/directives/joystickInput.directive.js"></script>
+        <script src="realm-components/joystickInput/controllers/joystickInput.gamepadConnectedDialog.js"></script>
+        
+        <script src="realm-components/trajectory/trajectoryComponent.js"></script>
+        
+        <script src="realm-components/playBack/playBackComponent.js"></script>
+        
+        <script src="realm-components/poseVisualization/poseVisualizationComponent.js"></script>
         <!--Utilities-->
         <script src="core/utils/equals.js" type="text/javascript"></script>
         <script src="core/utils/numericInput.js" type="text/javascript"></script>

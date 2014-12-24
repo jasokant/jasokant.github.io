@@ -179,7 +179,7 @@ angular.module('REALM').directive('joystickInputComponent', ['RobotService', fun
     controller: function ControllerFunction($scope, $element, $attrs)
     {
         var ctrl = this;
-        var robotPath = $scope.component.componentOptions.url;
+        var robotPath = '/device/test/mico';
         var robotPathSplitStringArray = robotPath.split('/');
         var robotType = robotPathSplitStringArray[robotPathSplitStringArray.length - 1];
 
